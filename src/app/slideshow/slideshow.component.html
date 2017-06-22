@@ -1,0 +1,14 @@
+<section class="ng-slideshow">
+  <div class="mask">
+    <ul>
+      <li *ngFor="let image of images; let i = index" [class.active]="i === 0" (transitionend)="transitionEnd($event)">
+        <a href="#" [style.background-image]="getSafeUrl(image.url)"></a>
+        <!--<span><h3>{{image.title}} = {{i}}</h3></span>-->
+      </li>
+    </ul>
+    <nav>
+      <a href="#" class="prev" (click)="showPrevious($event)">&#x2039;</a>
+      <a href="#" class="next" (click)="showNext($event)">&#x203a;</a>
+    </nav>
+  </div>
+</section>
