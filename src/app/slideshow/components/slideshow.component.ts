@@ -2,10 +2,9 @@ import {Component, ElementRef, Input} from '@angular/core';
 import {Store} from '@ngrx/store';
 import * as Immutable from 'immutable';
 import {DomSanitizer, SafeUrl} from '@angular/platform-browser';
-import {AppState} from './state.model';
-import {DECREMENT, INCREMENT, READY, RESET, SLIDING} from './state.reducer';
-import {SWIPE_ACTION} from './swipe-action.enum';
-import {SelectSignature} from '@ngrx/core/operator/select';
+import {AppState} from '../models/state.model';
+import {DECREMENT, INCREMENT, READY, RESET, SLIDING} from '../reducers/state.reducer';
+import {SWIPE_ACTION} from '../models/swipe-action.enum';
 
 @Component({
   selector: 'ng-slideshow',
@@ -54,11 +53,7 @@ export class SlideshowComponent {
   ) {
     this.offsetStateSubscription = this.store.select('index');
     this.loadingStateSubscription = this.store.select('state');
-
-    this.loadingStateSubscription.subscribe((appState) => {
-      console.log("STATE", appState);
-      this.loadingStatus = appState;
-    });
+    this.loadingStateSubscription.subscribe((appState) => this.loadingStatus = appState);
     this.offsetStateSubscription.subscribe((appState) => this.offsetStatus = appState);
   }
 
