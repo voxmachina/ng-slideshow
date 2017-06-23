@@ -1,7 +1,5 @@
 .ng-slideshow {
   background: #000;
-  border: 5px solid #eaeaea;
-  box-shadow: 1px 1px 5px rgba(0,0,0,0.7);
   height: 320px;
   width: 80%;
   margin: 40px auto 0;
@@ -14,6 +12,15 @@
     position: relative;
     overflow: hidden;
     height: 100%;
+  }
+
+  .gradient {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 80%, rgba(0, 0, 0, 0.6) 100%);
   }
 
   ul {
@@ -46,17 +53,31 @@
 
       &.active.slide-in {
         left: 0;
-        transition: left 1s ease-out;
+        transition: left .5s cubic-bezier(0.420, 0.000, 0.580, 1.000);
       }
 
       &.slide-out-left {
         left: -100%;
-        transition: left 1s ease-out;
+        transition: left .5s cubic-bezier(0.420, 0.000, 0.580, 1.000);
       }
 
       &.slide-out-right {
         left: 100%;
-        transition: left 1s ease-out;
+        transition: left .5s cubic-bezier(0.420, 0.000, 0.580, 1.000);
+      }
+    }
+
+    li span {
+      position: absolute;
+      bottom: 0;
+      display: flex;
+      width: 100%;
+
+      h3 {
+        opacity: 0.8;
+        margin: 10px;
+        color: #fff;
+        font-weight: normal;
       }
     }
 
@@ -80,22 +101,33 @@
     justify-content: space-between;
 
     a {
-      //width: 200px;
-      //height: 100%;
-      //display: none;
-      //position: absolute;
-      //opacity: 0;
-
+      position: absolute;
       z-index: 9;
       text-decoration: none;
-      transition: opacity .2s;
       color: #FFF;
-      font-size: 156pt;
+      font-size: 100pt;
       text-align: center;
       line-height: 380px;
-      font-family: "Varela Round", sans-serif;
-      background-color: rgba(255, 255, 255, .3);
       text-shadow: 0 0 15px rgb(119, 119, 119);
+      padding: 0 10px;
+      opacity: 0.2;
+      transition: opacity .2s linear;
+      height: 100%;
+      width: 30px;
+
+      &:hover {
+        opacity: 0.5;
+      }
+
+      &.next {
+        right: 0;
+        background: url('/assets/next.svg') no-repeat center/100%;
+      }
+
+      &.prev {
+        left: 0;
+        background: url('/assets/back.svg') no-repeat center/100%;
+      }
     }
   }
 }

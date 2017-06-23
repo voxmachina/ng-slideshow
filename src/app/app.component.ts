@@ -9,7 +9,7 @@ import * as Immutable from 'immutable';
 export class AppComponent {
   images = Immutable.List([
     {url: 'http://placekitten.com/800/500', title: 'cat'},
-    {url: 'http://placekitten.com/1200/500', title: 'cat'},
+    {url: 'http://placekitten.com/1200/500'},
     {url: 'http://placekitten.com/800/300', title: 'cat'},
     {url: 'http://placekitten.com/300/500', title: 'cat'},
     {url: 'http://placekitten.com/860/500', title: 'cat'},
