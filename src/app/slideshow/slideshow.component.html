@@ -3,13 +3,21 @@
     <ul>
       <li *ngFor="let image of images; let i = index" [class.active]="i === 0" (transitionend)="onActiveTransitionEnd($event)">
         <a href="#" [style.background-image]="getSafeUrl(image.url)"></a>
-        <div class="gradient" *ngIf="image.title"></div>
-        <span *ngIf="image.title"><h3>{{image.title}}</h3></span>
+        <div class="gradient" *ngIf="image.title || options.get('showDots')"></div>
+        <span *ngIf="image.title"><h3>{{image.title | truncate : 200}}</h3></span>
       </li>
     </ul>
     <nav>
       <a href="#" class="prev" (click)="showPrevious($event)" *ngIf="index.index > 0"></a>
       <a href="#" class="next" (click)="showNext($event)" *ngIf="index.index < images.count() - 1"></a>
     </nav>
+    <div class="nav-dots" *ngIf="options.get('showDots')">
+      <span class="nav-dot"
+            *ngFor="let image of images; let offset = index"
+            [class.active]="offset === index.index"
+            (click)="showByIndex(offset)" id="{{offset}}">
+      </span>
+    </div>
   </div>
 </section>
+<p>{{index|json}}</p>

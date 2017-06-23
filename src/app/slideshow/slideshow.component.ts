@@ -3,7 +3,7 @@ import {Store} from '@ngrx/store';
 import * as Immutable from 'immutable';
 import {DomSanitizer, SafeUrl} from '@angular/platform-browser';
 import {AppState, IndexState} from './state.model';
-import {DECREMENT, INCREMENT, READY, SLIDING} from './state.reducer';
+import {DECREMENT, INCREMENT, READY, RESET, SLIDING} from './state.reducer';
 
 @Component({
   selector: 'ng-slideshow',
@@ -18,6 +18,13 @@ export class SlideshowComponent {
    *@type {Immutable.List<any>}
    */
   @Input() images: Immutable.List<any>;
+
+  /**
+   * Configurable options for the slideshow
+   *
+   * @type {Immutable.List<any>}
+   */
+  @Input() options:  Immutable.Map<any, any> = Immutable.Map();
 
   /**
    * Current slide index
@@ -123,7 +130,7 @@ export class SlideshowComponent {
     const nextElement = activeElement.nextElementSibling;
     const previousElement = activeElement.previousElementSibling;
 
-    activeElement.classList.remove('slide-in', 'left', 'right');
+    activeElement.classList.remove('slide-in', 'left', 'right', 'slide-out-left', 'slide-out-right');
 
     if (previousElement) {
       previousElement.classList.add('left');
@@ -138,11 +145,54 @@ export class SlideshowComponent {
     this.state.dispatch({ type: READY});
   }
 
-  swipe(action = this.SWIPE_ACTION.RIGHT) {
+  /**
+   * On swipe events
+   *
+   * @param action
+   * @returns void
+   */
+  swipe(action = this.SWIPE_ACTION.RIGHT): void {
     if (action === this.SWIPE_ACTION.RIGHT) {
       this.showPrevious();
-    } else if(action === this.SWIPE_ACTION.LEFT) {
+    } else if (action === this.SWIPE_ACTION.LEFT) {
       this.showNext();
+    }
+  }
+
+  showByIndex(index) {
+    const list = this.elementRef.nativeElement.querySelectorAll('li');
+    const currentIndex: number = this.index['index'];
+
+    for (let i = 0; i < index; i++) {
+      console.log(list[i]);
+      list[i].classList.remove('right', 'active');
+      list[i].classList.add('left');
+    }
+
+    for (let i = index + 1; i < list.length; i++) {
+      list[i].classList.remove('left', 'active');
+      list[i].classList.add('right');
+    }
+
+    if (index > currentIndex) {
+      this.indexState.dispatch({ type: RESET});
+      for (let i = 0; i < index; i++) {
+        this.indexState.dispatch({type: INCREMENT});
+      }
+
+      list[currentIndex].classList.add('active');
+      list[index].classList.add('active', 'slide-in');
+      list[currentIndex].classList.remove('active');
+      list[currentIndex].classList.add('slide-out-left');
+    } else {
+      for (let i = currentIndex; i > index; i--) {
+        this.indexState.dispatch({type: DECREMENT});
+      }
+
+      list[currentIndex].classList.add('active');
+      list[index].classList.add('active', 'slide-in');
+      list[currentIndex].classList.remove('active');
+      list[currentIndex].classList.add('slide-out-right');
     }
   }
 

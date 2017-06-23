@@ -4,10 +4,12 @@ import {SlideshowComponent} from './slideshow.component';
 import {StoreModule} from '@ngrx/store';
 import {indexReducer, stateReducer} from './state.reducer';
 import 'hammerjs';
+import {TruncateModule} from 'ng2-truncate';
 
 @NgModule({
   imports: [
     CommonModule,
+    TruncateModule,
     StoreModule.provideStore({state: stateReducer, index: indexReducer})
   ],
   declarations: [SlideshowComponent],
