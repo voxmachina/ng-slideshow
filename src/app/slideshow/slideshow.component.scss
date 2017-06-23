@@ -33,23 +33,31 @@
       height: 100%;
 
       &.active {
-        left: 0 !important;
+        left: 0;
       }
-    }
 
-    li.active.slide-in {
-      left: 0 !important;
-      transition: left 1s ease-out;
-    }
+      &.left {
+        left: -100%;
+      }
 
-    li.slide-out-left {
-      left: -100%;
-      transition: left 1s ease-out;
-    }
+      &.right {
+        left: 100%;
+      }
 
-    li.slide-out-right {
-      left: 100%;
-      transition: left 1s ease-out;
+      &.active.slide-in {
+        left: 0;
+        transition: left 1s ease-out;
+      }
+
+      &.slide-out-left {
+        left: -100%;
+        transition: left 1s ease-out;
+      }
+
+      &.slide-out-right {
+        left: 100%;
+        transition: left 1s ease-out;
+      }
     }
 
     a {

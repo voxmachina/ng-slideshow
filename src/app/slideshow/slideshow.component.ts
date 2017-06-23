@@ -1,6 +1,9 @@
 import {Component, ElementRef, Input} from '@angular/core';
+import {Store} from '@ngrx/store';
 import * as Immutable from 'immutable';
 import {DomSanitizer, SafeUrl} from '@angular/platform-browser';
+import {AppState} from './state.model';
+import {READY, SLIDING} from './state.reducer';
 
 @Component({
   selector: 'ng-slideshow',
@@ -16,54 +19,79 @@ export class SlideshowComponent {
    */
   @Input() images: Immutable.List<any>;
 
-  constructor(private domSanitizer: DomSanitizer, private elementRef: ElementRef) {
+  slideshowState: AppState;
+
+  constructor(
+    private domSanitizer: DomSanitizer,
+    private state: Store<AppState>,
+    private elementRef: ElementRef
+  ) {
+    this.state.subscribe((state) => {
+      this.slideshowState = state;
+      console.log("STATE", this.slideshowState);
+    });
   }
 
   showPrevious(evt) {
     evt.preventDefault();
+
     const activeElement = this.elementRef.nativeElement.querySelector('li.active');
-    const previousElement = activeElement.previousSibling;
+    const previousElement = activeElement.previousElementSibling;
+
+    if (!previousElement || this.slideshowState.state === SLIDING) {
+      return;
+    }
+
+    this.state.dispatch({ type: SLIDING});
 
     activeElement.classList.remove('active');
     activeElement.classList.add('slide-out-right');
 
-    previousElement.classList.add('active');
-    previousElement.classList.add('slide-in');
+    previousElement.classList.add('active', 'slide-in');
   }
 
   showNext(evt) {
     evt.preventDefault();
+
     const activeElement = this.elementRef.nativeElement.querySelector('li.active');
-    const nextElement = activeElement.nextSibling;
+    const nextElement = activeElement.nextElementSibling;
+
+    if (!nextElement || this.slideshowState.state === SLIDING) {
+      return;
+    }
+
+    this.state.dispatch({ type: SLIDING});
 
     activeElement.classList.remove('active');
     activeElement.classList.add('slide-out-left');
 
-    nextElement.classList.add('active');
-    nextElement.classList.add('slide-in');
+    nextElement.classList.add('active', 'slide-in');
   }
 
-  transitionEnd(evt) {
-    evt.preventDefault();
-    const activeElement = this.elementRef.nativeElement.querySelector('li.active');
-    const nextElement = activeElement.nextSibling;
-    const previousElement = activeElement.previousSibling;
+  onActiveTransitionEnd(evt) {
+    const target = evt.currentTarget;
 
-    if (previousElement && previousElement.style) {
-      previousElement.style.left = '-100%';
+    if (!target.classList.contains('active')) {
+      return;
     }
 
-    activeElement.classList.remove('slide-in');
-    nextElement.classList.remove('slide-in');
-    nextElement.classList.remove('slide-out-left');
-    nextElement.classList.remove('slide-out-right');
-    previousElement.classList.remove('slide-in');
-    previousElement.classList.remove('slide-out-left');
-    previousElement.classList.remove('slide-out-right');
-  }
+    const activeElement = this.elementRef.nativeElement.querySelector('.active');
+    const nextElement = activeElement.nextElementSibling;
+    const previousElement = activeElement.previousElementSibling;
 
-  getSafeDistance(value: number) {
-    return this.domSanitizer.bypassSecurityTrustStyle(`${value}%`);
+    activeElement.classList.remove('slide-in', 'left', 'right');
+
+    if (previousElement) {
+      previousElement.classList.add('left');
+      previousElement.classList.remove('slide-in', 'right', 'slide-out-left', 'slide-out-right');
+    }
+
+    if (nextElement) {
+      nextElement.classList.add('right');
+      nextElement.classList.remove('slide-in', 'left', 'slide-out-left', 'slide-out-right');
+    }
+
+    this.state.dispatch({ type: READY});
   }
 
   getSafeUrl(imageUrl: string): SafeUrl {
