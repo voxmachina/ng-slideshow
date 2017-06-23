@@ -2,8 +2,10 @@ import {Component, ElementRef, Input} from '@angular/core';
 import {Store} from '@ngrx/store';
 import * as Immutable from 'immutable';
 import {DomSanitizer, SafeUrl} from '@angular/platform-browser';
-import {AppState, IndexState} from './state.model';
+import {AppState} from './state.model';
 import {DECREMENT, INCREMENT, READY, RESET, SLIDING} from './state.reducer';
+import {SWIPE_ACTION} from './swipe-action.enum';
+import {SelectSignature} from '@ngrx/core/operator/select';
 
 @Component({
   selector: 'ng-slideshow',
@@ -24,14 +26,7 @@ export class SlideshowComponent {
    *
    * @type {Immutable.List<any>}
    */
-  @Input() options:  Immutable.Map<any, any> = Immutable.Map();
-
-  /**
-   * Current slide index
-   *
-   * @type {IndexState}
-   */
-  public index: IndexState;
+  @Input() options: Immutable.Map<any, any> = Immutable.Map();
 
   /**
    * Slideshow application state
@@ -40,23 +35,31 @@ export class SlideshowComponent {
    */
   private slideshowState: AppState;
 
-  SWIPE_ACTION = { LEFT: 'swipeleft', RIGHT: 'swiperight' };
+  private offsetStateSubscription;
+  private loadingStateSubscription;
+
+  private offsetStatus;
+  private loadingStatus;
 
   /**
    * @constructor
    * @param domSanitizer
-   * @param state
-   * @param indexState
+   * @param store
    * @param elementRef
    */
   constructor(
     private domSanitizer: DomSanitizer,
-    private state: Store<AppState>,
-    private indexState: Store<IndexState>,
+    private store: Store<AppState>,
     private elementRef: ElementRef
   ) {
-    this.state.subscribe((appState) => this.slideshowState = appState);
-    this.indexState.subscribe((indexUpdate) => this.index = indexUpdate);
+    this.offsetStateSubscription = this.store.select('index');
+    this.loadingStateSubscription = this.store.select('state');
+
+    this.loadingStateSubscription.subscribe((appState) => {
+      console.log("STATE", appState);
+      this.loadingStatus = appState;
+    });
+    this.offsetStateSubscription.subscribe((appState) => this.offsetStatus = appState);
   }
 
   /**
@@ -73,12 +76,12 @@ export class SlideshowComponent {
     const activeElement = this.elementRef.nativeElement.querySelector('li.active');
     const previousElement = activeElement.previousElementSibling;
 
-    if (!previousElement || this.slideshowState.state === SLIDING) {
+    if (!previousElement || this.loadingStatus === SLIDING) {
       return;
     }
 
-    this.state.dispatch({ type: SLIDING});
-    this.indexState.dispatch({ type: DECREMENT});
+    this.loadingStateSubscription.dispatch({type: SLIDING});
+    this.offsetStateSubscription.dispatch({type: DECREMENT});
 
     activeElement.classList.remove('active');
     activeElement.classList.add('slide-out-right');
@@ -100,12 +103,12 @@ export class SlideshowComponent {
     const activeElement = this.elementRef.nativeElement.querySelector('li.active');
     const nextElement = activeElement.nextElementSibling;
 
-    if (!nextElement || this.slideshowState.state === SLIDING) {
+    if (!nextElement || this.loadingStatus === SLIDING) {
       return;
     }
 
-    this.state.dispatch({ type: SLIDING});
-    this.indexState.dispatch({ type: INCREMENT});
+    this.loadingStateSubscription.dispatch({type: SLIDING});
+    this.offsetStateSubscription.dispatch({type: INCREMENT});
 
     activeElement.classList.remove('active');
     activeElement.classList.add('slide-out-left');
@@ -142,7 +145,7 @@ export class SlideshowComponent {
       nextElement.classList.remove('slide-in', 'left', 'slide-out-left', 'slide-out-right');
     }
 
-    this.state.dispatch({ type: READY});
+    this.loadingStateSubscription.dispatch({type: READY});
   }
 
   /**
@@ -151,17 +154,23 @@ export class SlideshowComponent {
    * @param action
    * @returns void
    */
-  swipe(action = this.SWIPE_ACTION.RIGHT): void {
-    if (action === this.SWIPE_ACTION.RIGHT) {
+  swipe(action = SWIPE_ACTION.RIGHT): void {
+    if (action === SWIPE_ACTION.RIGHT) {
       this.showPrevious();
-    } else if (action === this.SWIPE_ACTION.LEFT) {
+    } else if (action === SWIPE_ACTION.LEFT) {
       this.showNext();
     }
   }
 
-  showByIndex(index) {
+  /**
+   * Show an element given its index
+   *
+   * @param index
+   * @returns void
+   */
+  showByIndex(index): void {
     const list = this.elementRef.nativeElement.querySelectorAll('li');
-    const currentIndex: number = this.index['index'];
+    const currentIndex: number = this.offsetStatus;
 
     for (let i = 0; i < index; i++) {
       console.log(list[i]);
@@ -175,9 +184,9 @@ export class SlideshowComponent {
     }
 
     if (index > currentIndex) {
-      this.indexState.dispatch({ type: RESET});
+      this.offsetStateSubscription.dispatch({type: RESET});
       for (let i = 0; i < index; i++) {
-        this.indexState.dispatch({type: INCREMENT});
+        this.offsetStateSubscription.dispatch({type: INCREMENT});
       }
 
       list[currentIndex].classList.add('active');
@@ -186,7 +195,7 @@ export class SlideshowComponent {
       list[currentIndex].classList.add('slide-out-left');
     } else {
       for (let i = currentIndex; i > index; i--) {
-        this.indexState.dispatch({type: DECREMENT});
+        this.offsetStateSubscription.dispatch({type: DECREMENT});
       }
 
       list[currentIndex].classList.add('active');

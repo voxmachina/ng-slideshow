@@ -8,16 +8,17 @@
       </li>
     </ul>
     <nav>
-      <a href="#" class="prev" (click)="showPrevious($event)" *ngIf="index.index > 0"></a>
-      <a href="#" class="next" (click)="showNext($event)" *ngIf="index.index < images.count() - 1"></a>
+      <a href="#" class="prev" (click)="showPrevious($event)" *ngIf="offsetStatus > 0"></a>
+
+      <a href="#" class="next" (click)="showNext($event)" *ngIf="offsetStatus < images.count() - 1"></a>
     </nav>
     <div class="nav-dots" *ngIf="options.get('showDots')">
       <span class="nav-dot"
             *ngFor="let image of images; let offset = index"
-            [class.active]="offset === index.index"
+            [class.active]="offset === offsetStatus"
             (click)="showByIndex(offset)" id="{{offset}}">
       </span>
     </div>
   </div>
 </section>
-<p>{{index|json}}</p>
+<p>{{slideshowState|json}}</p>
