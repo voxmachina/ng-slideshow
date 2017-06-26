@@ -4,7 +4,7 @@ import {SlideshowComponent} from './components/slideshow.component';
 import {StoreModule} from '@ngrx/store';
 import {indexReducer, stateReducer} from './reducers/state.reducer';
 import 'hammerjs';
-import {TruncateModule} from 'ng2-truncate';
+import {TruncateModule} from 'ng2-truncate/dist';
 
 @NgModule({
   imports: [
