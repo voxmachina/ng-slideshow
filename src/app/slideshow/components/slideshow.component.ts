@@ -1,4 +1,4 @@
-import {Component, ElementRef, Input} from '@angular/core';
+import {ChangeDetectionStrategy, Component, ElementRef, Input, ViewEncapsulation} from '@angular/core';
 import {Store} from '@ngrx/store';
 import * as Immutable from 'immutable';
 import {DomSanitizer, SafeUrl} from '@angular/platform-browser';
@@ -9,7 +9,9 @@ import {SWIPE_ACTION} from '../models/swipe-action.enum';
 @Component({
   selector: 'ng-slideshow',
   templateUrl: './slideshow.component.html',
-  styleUrls: ['./slideshow.component.scss']
+  styleUrls: ['./slideshow.component.scss'],
+  encapsulation: ViewEncapsulation.None,
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class SlideshowComponent {
 
@@ -39,6 +41,7 @@ export class SlideshowComponent {
 
   private offsetStatus;
   private loadingStatus;
+  private thumbnailOffset = 0;
 
   /**
    * @constructor
@@ -197,6 +200,28 @@ export class SlideshowComponent {
       list[index].classList.add('active', 'slide-in');
       list[currentIndex].classList.remove('active');
       list[currentIndex].classList.add('slide-out-right');
+    }
+  }
+
+  moveThumbnails(container: HTMLElement) {
+    const parent = this.elementRef.nativeElement.querySelector('.thumbnails');
+    const containerWidth =  container.offsetWidth;
+    const children = container.querySelectorAll('li');
+    const numElements = Math.ceil(containerWidth / this.options.get('thumbnailWidth'));
+    const distance = (this.thumbnailOffset + 1) * numElements * this.options.get('thumbnailWidth');
+    const curLeft = parseInt(container.getAttribute('data-left'), 10);
+    const newLeft = (curLeft - distance) + 'px';
+    const page = parseInt(container.getAttribute('data-page'), 10);
+    const totalPages = Math.round(children.length / numElements);
+
+    container.style.left = newLeft;
+    container.setAttribute('data-left', newLeft);
+    container.setAttribute('data-page', (page + 1) + '');
+
+    if (page >= totalPages) {
+      parent.classList.add('no-scroll-right');
+    } else {
+      parent.classList.remove('no-scroll-right');
     }
   }
 

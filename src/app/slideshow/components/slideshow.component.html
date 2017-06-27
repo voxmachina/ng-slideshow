@@ -1,7 +1,9 @@
 <section class="ng-slideshow" (swipeleft)="swipe($event.type)" (swiperight)="swipe($event.type)">
   <div class="mask">
     <ul>
-      <li *ngFor="let image of images; let i = index" [class.active]="i === 0" (transitionend)="onActiveTransitionEnd($event)">
+      <li *ngFor="let image of images; let i = index"
+          [class.active]="i === 0"
+          (transitionend)="onActiveTransitionEnd($event)">
         <a href="#" [style.background-image]="getSafeUrl(image.url)"></a>
         <div class="gradient" *ngIf="image.title || options.get('showDots')"></div>
         <span *ngIf="image.title"><h3>{{image.title | truncate : 200}}</h3></span>
@@ -9,7 +11,6 @@
     </ul>
     <nav>
       <a href="#" class="prev" (click)="showPrevious($event)" *ngIf="offsetStatus > 0"></a>
-
       <a href="#" class="next" (click)="showNext($event)" *ngIf="offsetStatus < images.count() - 1"></a>
     </nav>
     <div class="nav-dots" *ngIf="options.get('showDots')">
@@ -19,5 +20,20 @@
             (click)="showByIndex(offset)" id="{{offset}}">
       </span>
     </div>
+  </div>
+  <div class="thumbnails no-scroll-left">
+    <ul #thumbnailsContainer data-left="0" data-page="1">
+      <li *ngFor="let image of images; let thumbnailOffset = index"
+          id="thumbnail-{{thumbnailOffset}}"
+          [style.width.px]="options.get('thumbnailWidth')"
+          [style.left.px]="thumbnailOffset * options.get('thumbnailWidth')"
+          [class.active]="thumbnailOffset === offsetStatus">
+        <a href="#" (click)="showByIndex(thumbnailOffset)" [style.background-image]="getSafeUrl(image.url)"></a>
+      </li>
+    </ul>
+    <nav>
+      <a href="#" class="prev" (click)="showPrevious($event)"></a>
+      <a href="#" class="next" (click)="moveThumbnails(thumbnailsContainer)"></a>
+    </nav>
   </div>
 </section>
