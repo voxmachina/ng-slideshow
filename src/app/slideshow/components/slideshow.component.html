@@ -6,12 +6,12 @@
           (transitionend)="onActiveTransitionEnd($event)">
         <a href="#" [style.background-image]="getSafeUrl(image.url)"></a>
         <div class="gradient" *ngIf="image.title || options.get('showDots')"></div>
-        <span *ngIf="image.title"><h3>{{image.title | truncate : 200}}</h3></span>
+        <span *ngIf="image.title"><em>{{image.title | truncate : 200}}</em></span>
       </li>
     </ul>
     <nav>
-      <a href="#" class="prev" (click)="showPrevious($event)" *ngIf="offsetStatus > 0"></a>
-      <a href="#" class="next" (click)="showNext($event)" *ngIf="offsetStatus < images.count() - 1"></a>
+      <a href="#" class="prev" (click)="moveSlide('previous', $event)" *ngIf="offsetStatus > 0"></a>
+      <a href="#" class="next" (click)="moveSlide('next', $event)" *ngIf="offsetStatus < images.count() - 1"></a>
     </nav>
     <div class="nav-dots" *ngIf="options.get('showDots')">
       <span class="nav-dot"
