@@ -164,7 +164,6 @@ export class SlideshowComponent {
     const currentIndex: number = this.offsetStatus;
 
     for (let i = 0; i < index; i++) {
-      console.log(list[i]);
       list[i].classList.remove('right', 'active');
       list[i].classList.add('left');
     }
