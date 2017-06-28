@@ -404,11 +404,12 @@ export class SlideshowComponent implements AfterViewChecked {
    * @returns {void}
    */
   slideThumbnails(container: HTMLElement, direction: string = SLIDE_DIRECTION.NEXT) {
-    const parent = this.elementRef.nativeElement.querySelector('.thumbnails');
+    const parent = this.elementRef.nativeElement.querySelector('.' + DOM_CLASSES.THUMBNAILS);
     const containerWidth = container.offsetWidth;
     const children = container.querySelectorAll('li');
     const numElements = Math.ceil(containerWidth / this.options.get('thumbnailWidth'));
     const distance = (this.thumbnailOffset + 1) * numElements * this.options.get('thumbnailWidth');
+    const mask = parent.querySelector('.' + DOM_CLASSES.GRADIENT_MASK);
 
     const curLeft = parseInt(container.getAttribute('data-left'), 10);
     const newLeft = direction === SLIDE_DIRECTION.NEXT ? (curLeft - distance) + 'px' : (curLeft + distance) + 'px';
@@ -417,15 +418,23 @@ export class SlideshowComponent implements AfterViewChecked {
     const totalPages = Math.round(children.length / numElements);
 
     if (newPage > totalPages) {
-      parent.classList.add('no-scroll-right');
+      parent.classList.add(DOM_CLASSES.NO_SCROLL_RIGHT);
+      mask.classList.remove(DOM_CLASSES.GRADIENT_MASK_BOTH, DOM_CLASSES.GRADIENT_MASK_RIGHT);
+      mask.classList.add(DOM_CLASSES.GRADIENT_MASK_LEFT);
+    } else if (newPage === 1) {
+      parent.classList.add(DOM_CLASSES.NO_SCROLL_LEFT);
+      mask.classList.remove(DOM_CLASSES.GRADIENT_MASK_BOTH, DOM_CLASSES.GRADIENT_MASK_LEFT);
+      mask.classList.add(DOM_CLASSES.GRADIENT_MASK_RIGHT);
     } else {
-      parent.classList.remove('no-scroll-right');
+      parent.classList.remove(DOM_CLASSES.NO_SCROLL_RIGHT);
+      mask.classList.remove(DOM_CLASSES.GRADIENT_MASK_RIGHT, DOM_CLASSES.GRADIENT_MASK_LEFT);
+      mask.classList.add(DOM_CLASSES.GRADIENT_MASK_BOTH);
     }
 
     if (newPage === 1) {
-      parent.classList.add('no-scroll-left');
+      parent.classList.add(DOM_CLASSES.NO_SCROLL_LEFT);
     } else {
-      parent.classList.remove('no-scroll-left');
+      parent.classList.remove(DOM_CLASSES.NO_SCROLL_LEFT);
     }
 
     container.style.left = newLeft;
