@@ -12,7 +12,8 @@
     "docs:watch": "npm run docs:build -- -s -w",
     "ng": "ng",
     "start": "ng serve",
-    "test": "ng test",
+    "tests-dev": "ng test --browsers Chrome",
+    "tests-ci": "ng test --watch=false --browsers ChromeHeadless",
     "lint": "ng lint",
     "e2e": "ng e2e"
   },

@@ -14,6 +14,7 @@ import {EVENT} from '../enums/slideshow-event.enum';
 import {SlideshowEvent} from '../models/slideshow-event.model';
 import {READY, SLIDING} from '../reducers/loading-state.reducer';
 import {DECREMENT, INCREMENT, RESET} from '../reducers/offset-state.reducer';
+import {OPTIONS} from '../enums/options.enum';
 
 @Component({
   selector: 'ng-slideshow',
@@ -29,7 +30,7 @@ export class SlideshowComponent implements AfterViewChecked {
    *
    *@type {Immutable.List<any>}
    */
-  @Input() images: Immutable.List<any>;
+  @Input() images: Immutable.List<any> = Immutable.List<any>();
 
   /**
    * Configurable options for the slideshow
@@ -50,42 +51,42 @@ export class SlideshowComponent implements AfterViewChecked {
    *
    * @type any
    */
-  private offsetStateSubscription: any;
+  offsetStateSubscription: any;
 
   /**
    * Loading state subscription
    *
    * @type any
    */
-  private loadingStateSubscription: any;
+  loadingStateSubscription: any;
 
   /**
    * Offset status
    *
    * @type number
    */
-  private offsetStatus: number;
+  offsetStatus: number;
 
   /**
    * Loading status
    *
    * @type string
    */
-  private loadingStatus: string;
+  loadingStatus: string;
 
   /**
    * Thumbnail offset
    *
    * @type number
    */
-  private thumbnailOffset = 0;
+  thumbnailOffset = 0;
 
   /**
    * A list of DOM Elements
    *
    * @type Array<any>
    */
-  private domElements: Array<any> = [];
+  domElements: Array<any> = [];
 
   /**
    * @constructor
@@ -116,7 +117,9 @@ export class SlideshowComponent implements AfterViewChecked {
    * @returns {void}
    */
   ngAfterViewChecked(): void {
-    this.initializeThumbnailContainer();
+    if (this.options.get(OPTIONS.SHOW_THUMBNAILS)) {
+      this.initializeThumbnailContainer();
+    }
   }
 
   /**
@@ -142,6 +145,11 @@ export class SlideshowComponent implements AfterViewChecked {
    */
   slide(direction: string = 'next') {
     const activeElement = this.elementRef.nativeElement.querySelector('li.' + DOM_CLASSES.ACTIVE);
+
+    if (!activeElement) {
+      throw new Error('No active element defined');
+    }
+
     const slideElement = direction === SLIDE_DIRECTION.NEXT ?
       activeElement.nextElementSibling : activeElement.previousElementSibling;
 
