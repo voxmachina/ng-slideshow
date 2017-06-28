@@ -22,7 +22,7 @@
     </div>
   </div>
   <div class="thumbnails no-scroll-left">
-    <ul #thumbnailsContainer data-left="0" data-page="1">
+    <ul #thumbnailsContainer data-left="0" [attr.data-right]="images.count()" data-page="1">
       <li *ngFor="let image of images; let thumbnailOffset = index"
           id="thumbnail-{{thumbnailOffset}}"
           [style.width.px]="options.get('thumbnailWidth')"
@@ -32,8 +32,8 @@
       </li>
     </ul>
     <nav>
-      <a href="#" class="prev" (click)="showPrevious($event)"></a>
-      <a href="#" class="next" (click)="moveThumbnails(thumbnailsContainer)"></a>
+      <a href="#" class="prev" (click)="moveThumbnailsLeft(thumbnailsContainer)"></a>
+      <a href="#" class="next" (click)="moveThumbnailsRight(thumbnailsContainer)"></a>
     </nav>
   </div>
 </section>

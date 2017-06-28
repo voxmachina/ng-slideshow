@@ -29,13 +29,6 @@ export class SlideshowComponent {
    */
   @Input() options: Immutable.Map<any, any> = Immutable.Map();
 
-  /**
-   * Slideshow application state
-   *
-   * @type {AppState}
-   */
-  private slideshowState: AppState;
-
   private offsetStateSubscription;
   private loadingStateSubscription;
 
@@ -203,25 +196,63 @@ export class SlideshowComponent {
     }
   }
 
-  moveThumbnails(container: HTMLElement) {
+  moveThumbnailsRight(container: HTMLElement) {
     const parent = this.elementRef.nativeElement.querySelector('.thumbnails');
     const containerWidth =  container.offsetWidth;
     const children = container.querySelectorAll('li');
     const numElements = Math.ceil(containerWidth / this.options.get('thumbnailWidth'));
     const distance = (this.thumbnailOffset + 1) * numElements * this.options.get('thumbnailWidth');
+
     const curLeft = parseInt(container.getAttribute('data-left'), 10);
     const newLeft = (curLeft - distance) + 'px';
     const page = parseInt(container.getAttribute('data-page'), 10);
+    const newPage = page + 1;
     const totalPages = Math.round(children.length / numElements);
 
     container.style.left = newLeft;
     container.setAttribute('data-left', newLeft);
-    container.setAttribute('data-page', (page + 1) + '');
+    container.setAttribute('data-page', newPage + '');
 
-    if (page >= totalPages) {
+    if (page > totalPages) {
       parent.classList.add('no-scroll-right');
     } else {
       parent.classList.remove('no-scroll-right');
+    }
+
+    if (newPage === 1) {
+      parent.classList.add('no-scroll-left');
+    } else {
+      parent.classList.remove('no-scroll-left');
+    }
+  }
+
+  moveThumbnailsLeft(container: HTMLElement) {
+    const parent = this.elementRef.nativeElement.querySelector('.thumbnails');
+    const containerWidth =  container.offsetWidth;
+    const children = container.querySelectorAll('li');
+    const numElements = Math.ceil(containerWidth / this.options.get('thumbnailWidth'));
+    const distance = (this.thumbnailOffset + 1) * numElements * this.options.get('thumbnailWidth');
+
+    const curLeft = parseInt(container.getAttribute('data-left'), 10);
+    const newLeft = (curLeft + distance) + 'px';
+    const page = parseInt(container.getAttribute('data-page'), 10);
+    const newPage = page - 1;
+    const totalPages = Math.round(children.length / numElements);
+
+    container.style.left = newLeft;
+    container.setAttribute('data-left', newLeft);
+    container.setAttribute('data-page', newPage + '');
+
+    if (newPage > totalPages) {
+      parent.classList.add('no-scroll-right');
+    } else {
+      parent.classList.remove('no-scroll-right');
+    }
+
+    if (newPage === 1) {
+      parent.classList.add('no-scroll-left');
+    } else {
+      parent.classList.remove('no-scroll-left');
     }
   }
 
