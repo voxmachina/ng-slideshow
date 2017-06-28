@@ -408,9 +408,8 @@ export class SlideshowComponent implements AfterViewChecked {
     const containerWidth = container.offsetWidth;
     const children = container.querySelectorAll('li');
     const numElements = Math.ceil(containerWidth / this.options.get('thumbnailWidth'));
-    const distance = (this.thumbnailOffset + 1) * numElements * this.options.get('thumbnailWidth');
     const mask = parent.querySelector('.' + DOM_CLASSES.GRADIENT_MASK);
-
+    const distance = (this.thumbnailOffset + 1) * numElements * this.options.get('thumbnailWidth') - this.options.get('thumbnailWidth');
     const curLeft = parseInt(container.getAttribute('data-left'), 10);
     const newLeft = direction === SLIDE_DIRECTION.NEXT ? (curLeft - distance) + 'px' : (curLeft + distance) + 'px';
     const page = parseInt(container.getAttribute('data-page'), 10);
@@ -419,6 +418,7 @@ export class SlideshowComponent implements AfterViewChecked {
 
     if (newPage > totalPages) {
       parent.classList.add(DOM_CLASSES.NO_SCROLL_RIGHT);
+      parent.classList.remove(DOM_CLASSES.NO_SCROLL_LEFT);
       mask.classList.remove(DOM_CLASSES.GRADIENT_MASK_BOTH, DOM_CLASSES.GRADIENT_MASK_RIGHT);
       mask.classList.add(DOM_CLASSES.GRADIENT_MASK_LEFT);
     } else if (newPage === 1) {
@@ -426,15 +426,9 @@ export class SlideshowComponent implements AfterViewChecked {
       mask.classList.remove(DOM_CLASSES.GRADIENT_MASK_BOTH, DOM_CLASSES.GRADIENT_MASK_LEFT);
       mask.classList.add(DOM_CLASSES.GRADIENT_MASK_RIGHT);
     } else {
-      parent.classList.remove(DOM_CLASSES.NO_SCROLL_RIGHT);
+      parent.classList.remove(DOM_CLASSES.NO_SCROLL_RIGHT, DOM_CLASSES.NO_SCROLL_LEFT);
       mask.classList.remove(DOM_CLASSES.GRADIENT_MASK_RIGHT, DOM_CLASSES.GRADIENT_MASK_LEFT);
       mask.classList.add(DOM_CLASSES.GRADIENT_MASK_BOTH);
-    }
-
-    if (newPage === 1) {
-      parent.classList.add(DOM_CLASSES.NO_SCROLL_LEFT);
-    } else {
-      parent.classList.remove(DOM_CLASSES.NO_SCROLL_LEFT);
     }
 
     container.style.left = newLeft;

@@ -9,9 +9,9 @@ import * as Immutable from 'immutable';
 export class AppComponent {
   options = Immutable.Map({
     showDots: true,
-    height: 320,
+    height: 450,
     showThumbnails: true,
-    thumbnailWidth: 100
+    thumbnailWidth: 150
   });
 
   images = Immutable.List([
