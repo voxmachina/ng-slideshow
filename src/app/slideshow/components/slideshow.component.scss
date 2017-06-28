@@ -1,7 +1,7 @@
 .ng-slideshow {
   display: flex;
   flex-direction: column;
-  background: #000;
+  background: transparent;
   width: 100%;
   height: 100%;
   margin: 40px auto 0;
@@ -197,6 +197,7 @@
       width: 100px;
       left: auto;
       z-index: 2;
+      background-size: 50%;
     }
   }
 

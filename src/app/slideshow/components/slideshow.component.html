@@ -21,7 +21,7 @@
       </span>
     </div>
   </div>
-  <div class="thumbnails no-scroll-left">
+  <div *ngIf="options.get('showThumbnails')" class="thumbnails no-scroll-left no-scroll-right">
     <ul #thumbnailsContainer data-left="0" [attr.data-right]="images.count()" data-page="1">
       <li *ngFor="let image of images; let thumbnailOffset = index"
           id="thumbnail-{{thumbnailOffset}}"

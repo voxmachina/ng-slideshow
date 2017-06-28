@@ -1,4 +1,5 @@
 import {
+  AfterViewChecked,
   ChangeDetectionStrategy, Component, ElementRef, EventEmitter, Input, NgZone, Output,
   ViewEncapsulation
 } from '@angular/core';
@@ -21,7 +22,7 @@ import {DECREMENT, INCREMENT, RESET} from '../reducers/offset-state.reducer';
   encapsulation: ViewEncapsulation.None,
   changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class SlideshowComponent {
+export class SlideshowComponent implements AfterViewChecked {
 
   /**
    * The immutable list of images
@@ -107,6 +108,15 @@ export class SlideshowComponent {
       this.offsetStatus = appState;
       this.eventDispatcher.emit({label: EVENT.OFFSET, metadata: this.loadingStatus});
     });
+  }
+
+  /**
+   * After view is checked event
+   *
+   * @returns {void}
+   */
+  ngAfterViewChecked(): void {
+    this.initializeThumbnailContainer();
   }
 
   /**
@@ -368,6 +378,25 @@ export class SlideshowComponent {
   }
 
   /**
+   * Initializes the thumbnails container
+   *
+   * @returns {void}
+   */
+  initializeThumbnailContainer() {
+    const parent = this.elementRef.nativeElement.querySelector('.thumbnails');
+    const container = parent.querySelector('ul');
+    const containerWidth = container.offsetWidth;
+    const totalImages = this.images.count();
+    const numElements = Math.ceil(containerWidth / this.options.get('thumbnailWidth'));
+
+    if (totalImages > numElements) {
+      parent.classList.remove('no-scroll-right');
+    } else {
+      parent.classList.add('no-scroll-right');
+    }
+  }
+
+  /**
    * Slides thumbnails to a given direction
    *
    * @param container
@@ -387,10 +416,6 @@ export class SlideshowComponent {
     const newPage = direction === SLIDE_DIRECTION.NEXT ? page + 1 : page - 1;
     const totalPages = Math.round(children.length / numElements);
 
-    container.style.left = newLeft;
-    container.setAttribute('data-left', newLeft);
-    container.setAttribute('data-page', newPage + '');
-
     if (newPage > totalPages) {
       parent.classList.add('no-scroll-right');
     } else {
@@ -402,6 +427,10 @@ export class SlideshowComponent {
     } else {
       parent.classList.remove('no-scroll-left');
     }
+
+    container.style.left = newLeft;
+    container.setAttribute('data-left', newLeft);
+    container.setAttribute('data-page', newPage + '');
   }
 
   /**

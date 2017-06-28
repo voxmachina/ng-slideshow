@@ -10,6 +10,7 @@ export class AppComponent {
   options = Immutable.Map({
     showDots: true,
     height: 320,
+    showThumbnails: true,
     thumbnailWidth: 100
   });
 
