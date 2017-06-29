@@ -143,7 +143,7 @@ export class SlideshowComponent implements AfterViewChecked {
    * @param direction
    * @returns {void}
    */
-  slide(direction: string = 'next') {
+  slide(direction: string = 'next'): void {
     const activeElement = this.elementRef.nativeElement.querySelector('li.' + DOM_CLASSES.ACTIVE);
 
     if (!activeElement) {

@@ -19,6 +19,7 @@ const getDebugSlideList = function(howMany = 3, activeIndex = 0) {
 
     if (i === activeIndex) {
       li.className = 'active';
+      li.id = 'slide-' + i;
     }
 
     list.appendChild(li);
@@ -126,6 +127,28 @@ describe('SlideshowComponent', () => {
       it('it should throw an error when there is not an active element', () => {
         fixture.debugElement.nativeElement.appendChild(getDebugSlideList(3, -1));
         expect(() => component.moveSlide('')).toThrowError();
+      });
+
+      it('it should not slide if current status is on sliding', () => {
+        fixture.debugElement.nativeElement.appendChild(getDebugSlideList(3, 2));
+        component.loadingStatus = SLIDING;
+        const activeElement = fixture.debugElement.nativeElement.querySelector('li.active');
+
+        component.moveSlide('');
+
+        const newActiveElement = fixture.debugElement.nativeElement.querySelector('li.active');
+        expect(activeElement.id).toBe(newActiveElement.id);
+      });
+
+      it('it should not slide if active element does not have any siblings', () => {
+        fixture.debugElement.nativeElement.appendChild(getDebugSlideList(3, 2));
+        component.loadingStatus = SLIDING;
+        const activeElement = fixture.debugElement.nativeElement.querySelector('li.active');
+
+        component.moveSlide('');
+
+        const newActiveElement = fixture.debugElement.nativeElement.querySelector('li.active');
+        expect(activeElement.id).toBe(newActiveElement.id);
       });
 
     });
