@@ -14,6 +14,7 @@
     "start": "ng serve",
     "tests-dev": "ng test --browsers Chrome",
     "tests-ci": "ng test --watch=false --browsers ChromeHeadless",
+    "tests": "npm run tests-ci",
     "lint": "ng lint"
   },
   "devDependencies": {
