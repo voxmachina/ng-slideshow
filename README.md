@@ -25,6 +25,10 @@ On top of that, I wanted a slideshow that takes its size from the parent contain
 
 http://igeni.us/ng-slideshow/
 
+## Docs
+
+https://voxmachina.github.io/ng-slideshow/
+
 ## Requirements
 
 [Angular 2+](https://angular.io/)
