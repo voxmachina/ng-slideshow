@@ -1,16 +1,17 @@
 <section class="ng-slideshow" (swipeleft)="swipe($event.type)" (swiperight)="swipe($event.type)">
   <div class="mask">
     <ul>
-      <li *ngFor="let image of images; let i = index" [class.active]="i === 0" (transitionend)="onActiveTransitionEnd($event)">
+      <li *ngFor="let image of images; let i = index"
+          [class.active]="i === 0"
+          (transitionend)="onActiveTransitionEnd($event)">
         <a href="#" [style.background-image]="getSafeUrl(image.url)"></a>
         <div class="gradient" *ngIf="image.title || options.get('showDots')"></div>
-        <span *ngIf="image.title"><h3>{{image.title | truncate : 200}}</h3></span>
+        <span *ngIf="image.title"><em>{{image.title | truncate : 200}}</em></span>
       </li>
     </ul>
     <nav>
-      <a href="#" class="prev" (click)="showPrevious($event)" *ngIf="offsetStatus > 0"></a>
-
-      <a href="#" class="next" (click)="showNext($event)" *ngIf="offsetStatus < images.count() - 1"></a>
+      <a href="#" class="prev" (click)="moveSlide('previous', $event)" *ngIf="offsetStatus > 0"></a>
+      <a href="#" class="next" (click)="moveSlide('next', $event)" *ngIf="offsetStatus < images.count() - 1"></a>
     </nav>
     <div class="nav-dots" *ngIf="options.get('showDots')">
       <span class="nav-dot"
@@ -20,5 +21,20 @@
       </span>
     </div>
   </div>
+  <div *ngIf="options.get('showThumbnails')" class="thumbnails no-scroll-left no-scroll-right">
+    <ul #thumbnailsContainer data-left="0" [attr.data-right]="images.count()" data-page="1">
+      <li *ngFor="let image of images; let thumbnailOffset = index"
+          id="thumbnail-{{thumbnailOffset}}"
+          [style.width.px]="options.get('thumbnailWidth')"
+          [style.left.px]="thumbnailOffset * options.get('thumbnailWidth')"
+          [class.active]="thumbnailOffset === offsetStatus">
+        <a href="#" (click)="showByIndex(thumbnailOffset)" [style.background-image]="getSafeUrl(image.url)"></a>
+      </li>
+    </ul>
+    <div class="gradient-mask gradient-mask-right"></div>
+    <nav>
+      <a href="#" class="prev" (click)="moveThumbnailsLeft(thumbnailsContainer)"></a>
+      <a href="#" class="next" (click)="moveThumbnailsRight(thumbnailsContainer)"></a>
+    </nav>
+  </div>
 </section>
-<p>{{slideshowState|json}}</p>

@@ -1,14 +1,18 @@
+@import "../scss/flexbox";
+@import "../scss/mixins";
+
 .ng-slideshow {
-  background: #000;
-  height: 320px;
-  width: 80%;
+  @include flexbox();
+  @include flex-direction(column);
+  background: transparent;
+  width: 100%;
+  height: 100%;
   margin: 40px auto 0;
   overflow: visible;
   position: relative;
 
   .mask {
-    display: flex;
-    flex-direction: row;
+    @include flexbox();
     position: relative;
     overflow: hidden;
     height: 100%;
@@ -74,12 +78,12 @@
     }
 
     li span {
+      @include flexbox();
       position: absolute;
       top: 0;
-      display: flex;
       width: 100%;
 
-      h3 {
+      em {
         margin: 6px 10px;
         color: #fff;
         font-weight: normal;
@@ -98,14 +102,14 @@
   }
 
   nav {
+    @include flexbox();
+    @include align-items(center);
+    @include justify-content(space-between);
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
 
     a {
       position: absolute;
@@ -116,24 +120,25 @@
       text-align: center;
       line-height: 380px;
       text-shadow: 0 0 15px rgb(119, 119, 119);
-      padding: 0 10px;
-      opacity: 0.2;
+      opacity: 0.5;
       transition: opacity .2s linear;
       height: 100%;
       width: 30px;
 
       &:hover {
-        opacity: 0.5;
+        opacity: 1;
       }
 
       &.next {
         right: 0;
-        background: url('/assets/next.svg') no-repeat center/100%;
+        margin: 0 10px 0 0;
+        background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgdmlld0JveD0iMCAwIDI0MC44MjMgMjQwLjgyMyIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgMjQwLjgyMyAyNDAuODIzOyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSIgd2lkdGg9IjUxMnB4IiBoZWlnaHQ9IjUxMnB4Ij48Zz48cGF0aCBpZD0iQ2hldnJvbl9SaWdodF8xXyIgZD0iTTE4My4xODksMTExLjgxNkw3NC44OTIsMy41NTVjLTQuNzUyLTQuNzQtMTIuNDUxLTQuNzQtMTcuMjE1LDBjLTQuNzUyLDQuNzQtNC43NTIsMTIuNDM5LDAsMTcuMTc5ICAgbDk5LjcwNyw5OS42NzFsLTk5LjY5NSw5OS42NzFjLTQuNzUyLDQuNzQtNC43NTIsMTIuNDM5LDAsMTcuMTkxYzQuNzUyLDQuNzQsMTIuNDYzLDQuNzQsMTcuMjE1LDBsMTA4LjI5Ny0xMDguMjYxICAgQzE4Ny44ODEsMTI0LjMxNSwxODcuODgxLDExNi40OTUsMTgzLjE4OSwxMTEuODE2eiIgZmlsbD0iI0ZGRkZGRiIvPjxnPjwvZz48Zz48L2c+PGc+PC9nPjxnPjwvZz48Zz48L2c+PGc+PC9nPjwvZz48Zz48L2c+PGc+PC9nPjxnPjwvZz48Zz48L2c+PGc+PC9nPjxnPjwvZz48Zz48L2c+PGc+PC9nPjxnPjwvZz48Zz48L2c+PGc+PC9nPjxnPjwvZz48Zz48L2c+PGc+PC9nPjxnPjwvZz48L3N2Zz4=) no-repeat center/85%;
       }
 
       &.prev {
         left: 0;
-        background: url('/assets/back.svg') no-repeat center/100%;
+        margin: 0 0 0 10px;
+        background: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/PjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgdmlld0JveD0iMCAwIDI0MC44MjMgMjQwLjgyMyIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgMjQwLjgyMyAyNDAuODIzOyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSIgd2lkdGg9IjUxMnB4IiBoZWlnaHQ9IjUxMnB4Ij48Zz48cGF0aCBpZD0iQ2hldnJvbl9SaWdodCIgZD0iTTU3LjYzMywxMjkuMDA3TDE2NS45MywyMzcuMjY4YzQuNzUyLDQuNzQsMTIuNDUxLDQuNzQsMTcuMjE1LDBjNC43NTItNC43NCw0Ljc1Mi0xMi40MzksMC0xNy4xNzkgICBsLTk5LjcwNy05OS42NzFsOTkuNjk1LTk5LjY3MWM0Ljc1Mi00Ljc0LDQuNzUyLTEyLjQzOSwwLTE3LjE5MWMtNC43NTItNC43NC0xMi40NjMtNC43NC0xNy4yMTUsMEw1Ny42MjEsMTExLjgxNiAgIEM1Mi45NDIsMTE2LjUwNyw1Mi45NDIsMTI0LjMyNyw1Ny42MzMsMTI5LjAwN3oiIGZpbGw9IiNGRkZGRkYiLz48Zz48L2c+PGc+PC9nPjxnPjwvZz48Zz48L2c+PGc+PC9nPjxnPjwvZz48L2c+PGc+PC9nPjxnPjwvZz48Zz48L2c+PGc+PC9nPjxnPjwvZz48Zz48L2c+PGc+PC9nPjxnPjwvZz48Zz48L2c+PGc+PC9nPjxnPjwvZz48Zz48L2c+PGc+PC9nPjxnPjwvZz48Zz48L2c+PC9zdmc+) no-repeat center/85%;
       }
     }
   }
@@ -171,6 +176,82 @@
       background: rgba(0, 0, 0, 0.8);
     }
   }
+
+  .touchevents & {
+    nav {
+      display: none;
+    }
+  }
 }
 
+.ng-slideshow .thumbnails {
+  position: relative;
+  height: 100px;
+  overflow: hidden;
 
+  .gradient-mask {
+    position: absolute;
+    pointer-events: none;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 3;
+    height: 100%;
+
+    &-both {
+      background-image: linear-gradient(to left, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 95%, rgba(0, 0, 0, 1) 100%),
+      linear-gradient(to right, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 95%, rgba(0, 0, 0, 1) 100%);
+    }
+
+    &-left {
+      background-image: linear-gradient(to left, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 85%, rgba(0, 0, 0, 1) 100%);
+    }
+
+    &-right {
+      background-image: linear-gradient(to right, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0) 85%, rgba(0, 0, 0, 1) 100%);
+    }
+  }
+
+  ul {
+    z-index: 2;
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: left .4s ease-out;
+
+    li {
+      width: 100px;
+      left: auto;
+      z-index: 2;
+      background-size: 50%;
+    }
+  }
+
+  .next, .prev {
+    background-size: 65%;
+  }
+
+  &.no-scroll-right {
+    nav {
+      .next {
+        background: none;
+      }
+    }
+
+    .gradient-mask-right {
+      background-image: none;
+    }
+  }
+
+  &.no-scroll-left {
+    nav {
+      .prev {
+        background: none;
+      }
+    }
+
+    .gradient-mask-left {
+      background-image: none;
+    }
+  }
+}
