@@ -106,7 +106,7 @@
                                 id="xs-classes-links"
                             >
                                 <li class="link">
-                                    <a href="../classes/NgSlideshowPage.html" >NgSlideshowPage</a>
+                                    <a href="../classes/SlideshowEvent.html" >SlideshowEvent</a>
                                 </li>
                         </ul>
                     </li>
@@ -236,7 +236,7 @@
                                        id="classes-links"
                    >
                                        <li class="link">
-                                           <a href="../classes/NgSlideshowPage.html" >NgSlideshowPage</a>
+                                           <a href="../classes/SlideshowEvent.html" >SlideshowEvent</a>
                                        </li>
                                </ul>
                            </li>
@@ -335,7 +335,7 @@
 
             <tr>
                 <td class="col-md-3">styleUrls</td>
-                <td class="col-md-9"><code>app.component.css</code></td>
+                <td class="col-md-9"><code>app.component.scss</code></td>
             </tr>
 
 
@@ -374,7 +374,7 @@
                     </tr>
                             <tr>
                                 <td class="col-md-4">
-                                    <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/app/app.component.ts:14</a></div>
+                                    <div class="io-line">Defined in <a href="" data-line="17" class="link-to-prism">src/app/app.component.ts:17</a></div>
                                 </td>
                             </tr>
                 </tbody>
@@ -410,26 +410,34 @@ import * as Immutable from &#x27;immutable&#x27;;
 @Component({
   selector: &#x27;app-root&#x27;,
   templateUrl: &#x27;./app.component.html&#x27;,
-  styleUrls: [&#x27;./app.component.css&#x27;]
+  styleUrls: [&#x27;./app.component.scss&#x27;]
 })
 export class AppComponent {
   options &#x3D; Immutable.Map({
-    showDots: true
+    showDots: true,
+    height: 450,
+    showThumbnails: true,
+    thumbnailWidth: 150
   });
 
   images &#x3D; Immutable.List([
-    {url: &#x27;http://placekitten.com/800/500&#x27;, title: &#x27;Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrs standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.&#x27;},
+    {
+      url: &#x27;http://placekitten.com/800/500&#x27;,
+      title: &#x27;Lorem Ipsum is simply dummy text of the printing and typesetting industry. &#x27; +
+      &#x27;Lorem Ipsum has been the industrs standard dummy text ever since the 1500s, when an unknown printer &#x27; +
+      &#x27;took a galley of type and scrambled it to make a type specimen book.&#x27;
+    },
     {url: &#x27;http://placekitten.com/1200/500&#x27;},
     {url: &#x27;http://placekitten.com/800/300&#x27;, title: &#x27;cat&#x27;},
     {url: &#x27;http://placekitten.com/300/500&#x27;, title: &#x27;cat&#x27;},
-    // {url: &#x27;http://placekitten.com/860/500&#x27;, title: &#x27;cat&#x27;},
-    // {url: &#x27;http://placekitten.com/830/500&#x27;, title: &#x27;cat&#x27;},
-    // {url: &#x27;http://placekitten.com/660/500&#x27;, title: &#x27;cat&#x27;},
-    // {url: &#x27;http://placekitten.com/720/500&#x27;, title: &#x27;cat&#x27;},
-    // {url: &#x27;http://placekitten.com/360/300&#x27;, title: &#x27;cat&#x27;},
-    // {url: &#x27;http://placekitten.com/860/860&#x27;, title: &#x27;cat&#x27;},
-    // {url: &#x27;http://placekitten.com/800/900&#x27;, title: &#x27;cat&#x27;},
-    // {url: &#x27;http://placekitten.com/800/1200&#x27;, title: &#x27;cat&#x27;}
+    {url: &#x27;http://placekitten.com/860/500&#x27;, title: &#x27;cat&#x27;},
+    {url: &#x27;http://placekitten.com/830/500&#x27;, title: &#x27;cat&#x27;},
+    {url: &#x27;http://placekitten.com/660/500&#x27;, title: &#x27;cat&#x27;},
+    {url: &#x27;http://placekitten.com/720/500&#x27;, title: &#x27;cat&#x27;},
+    {url: &#x27;http://placekitten.com/360/300&#x27;, title: &#x27;cat&#x27;},
+    {url: &#x27;http://placekitten.com/860/860&#x27;, title: &#x27;cat&#x27;},
+    {url: &#x27;http://placekitten.com/800/900&#x27;, title: &#x27;cat&#x27;},
+    {url: &#x27;http://placekitten.com/800/1200&#x27;, title: &#x27;cat&#x27;}
   ]);
 }
 </code></pre>
@@ -437,7 +445,7 @@ export class AppComponent {
 
     <div class="tab-pane fade" id="templateData">
         <pre class="line-numbers"><code class="language-html">&lt;h1&gt;Slideshow Demo&lt;/h1&gt;
-&lt;section&gt;
+&lt;section style&#x3D;&quot;width: 900px; height: 450px;&quot;&gt;
   &lt;ng-slideshow [options]&#x3D;&quot;options&quot; [images]&#x3D;&quot;images&quot;&gt;&lt;/ng-slideshow&gt;
 &lt;/section&gt;
 </code></pre>
@@ -466,7 +474,7 @@ export class AppComponent {
 <script src="../js/libs/htmlparser.js"></script>
 <script src="../js/libs/deep-iterator.js"></script>
 <script>
-        var COMPONENT_TEMPLATE = '<div><h1>Slideshow Demo</h1><section>  <ng-slideshow [options]="options" [images]="images"></ng-slideshow></section></div>'
+        var COMPONENT_TEMPLATE = '<div><h1>Slideshow Demo</h1><section style="width: 900px; height: 450px;">  <ng-slideshow [options]="options" [images]="images"></ng-slideshow></section></div>'
     var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'SlideshowComponent', 'selector': 'ng-slideshow'}];
     var DIRECTIVES = [];
     var ACTUAL_COMPONENT = {'name': 'AppComponent'};

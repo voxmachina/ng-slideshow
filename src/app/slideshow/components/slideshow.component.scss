@@ -237,6 +237,10 @@
         background: none;
       }
     }
+
+    .gradient-mask-right {
+      background-image: none;
+    }
   }
 
   &.no-scroll-left {
@@ -244,6 +248,10 @@
       .prev {
         background: none;
       }
+    }
+
+    .gradient-mask-left {
+      background-image: none;
     }
   }
 }

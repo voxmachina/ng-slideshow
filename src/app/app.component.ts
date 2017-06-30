@@ -7,6 +7,11 @@ import * as Immutable from 'immutable';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
+  /**
+   * A list of slideshow options
+   *
+   * @type {Map<string, any>}
+   */
   options = Immutable.Map({
     showDots: true,
     height: 450,
@@ -14,6 +19,11 @@ export class AppComponent {
     thumbnailWidth: 150
   });
 
+  /**
+   * A list of images
+   *
+   * @type {Immutable.List<any>}
+   */
   images = Immutable.List([
     {
       url: 'http://placekitten.com/800/500',
