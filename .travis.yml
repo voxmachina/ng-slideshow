@@ -1,11 +1,25 @@
+sudo: required
+dist: trusty
 language: node_js
-
-# test on two node.js versions: 0.6 and 0.8
 node_js:
-  - 0.6
-  - 0.8
+  - '6.11'
 
-# configure notifications (email, IRC, campfire etc)
-# please update this section to your needs!
-notifications:
-  irc: "irc.freenode.org#travis"
+addons:
+apt:
+  sources:
+    - google-chrome
+  packages:
+    - google-chrome-stable
+    - google-chrome-beta
+
+before_install:
+  - export CHROME_BIN=chromium-browser
+  - export DISPLAY=:99.0
+  - sh -e /etc/init.d/xvfb start
+
+before_script:
+- npm install -g angular-cli
+- npm install -g karma
+- npm install
+- ng build
+
