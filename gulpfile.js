@@ -153,6 +153,11 @@ gulp.task('copy:build', function () {
     .pipe(gulp.dest(distFolder));
 });
 
+gulp.task('copy:envs', function () {
+  return gulp.src([`${buildFolder}/**/*`, `!${buildFolder}/**/*.js`])
+    .pipe(gulp.dest(distFolder));
+});
+
 /**
  * 8. Copy package.json from /src to /dist
  */

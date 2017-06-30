@@ -1,6 +1,6 @@
 {
   "name": "ng-slideshow",
-  "version": "0.8.1",
+  "version": "0.8.2",
   "license": "MIT",
   "scripts": {
     "build:package": "gulp build",
@@ -53,6 +53,7 @@
     "karma-jasmine-html-reporter": "^0.2.2",
     "modernizr": "3.5.0",
     "ng2-truncate": "1.3.7",
+    "ngrx-store-freeze": "0.1.9",
     "node-sass": "4.5.3",
     "node-sass-tilde-importer": "1.0.0",
     "node-watch": "0.5.5",
