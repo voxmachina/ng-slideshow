@@ -1,18 +1,45 @@
 # Angular 2+ Slideshow
 
-A high speed image gallery slideshow.
+A high speed, fluid and consistent image gallery slideshow target for both desktop and mobile.
+
+ADD DEMO IMAGE
+
+There are a lot of slideshow components available on the web, although none of them matched completely my needs and requirements; so I've decided to create one. I needed a fast slideshow that doesn't block anything else occurring in the page, that uses Immutable objects as inputs and only relies on native browser support for animations and that allows for swiping on mobile.
+
+On top of that, I wanted a slideshow that takes its size from the parent container, so I can easily manipulate it to have a real proper slideshow for different viewports.
+
+**Features**:
+
+- Uses [Immutable](https://facebook.github.io/immutable-js/) objects as inputs thus optimizing Angular change detection mechanism
+- All animations are purely CSS based
+- Supports swipe events for touch devices
+- All animations and slide events occur outside of the Angular zone, thus increasing FPS values
+- All functionality is covered with unit tests
+- Uses images as background images, meaning that the viewport is always the same size for all images
+- By using images as background images it allows the slideshow to grown dynamically according to its parent container
+- Only needs to have a defined height, width can be automatically calculated from the parent container
+- Optionally, a list of thumbnails can be displayed below the main slide for extended navigation
+- Optionally, a dot navigation style is also provided
 
 ## Demo
 
 ADD DEMO LINK
 
+## Requirements
+
+[Angular 2+](https://angular.io/)
+
+[NPM](https://www.npmjs.com/get-npm)
+
+[NodeJS](https://nodejs.org)
+
 ## Installation
 
-`npm install ng-slideshow --save` or `yarn add ng-slideshow`
+`npm install ng-slideshow --save`
 
 ## Usage
 
-On the module:
+Import `SlideshowModule` on your app module:
 
 ```javascript
 import {BrowserModule} from '@angular/platform-browser';
@@ -40,7 +67,7 @@ export class AppModule {
 
 ```
 
-On the component:
+On the component specify a list of options and a list of images to display:
 
 ```javascript
 import { Component } from '@angular/core';
@@ -58,15 +85,23 @@ export class AppComponent {
    * @type {Map<string, any>}
    */
   options = Immutable.Map({
-    showDots: true,
-    height: 450,
-    showThumbnails: true,
-    thumbnailWidth: 150
+    showDots: true,         // Shows a dot navigation component
+    height: 450,            // The initial slideshow height
+    showThumbnails: true,   // Optionally include thumbnails a navigation option
+    thumbnailWidth: 150     // Thumbnail individual width for the thumbnail navigation component
   });
 
   /**
-   * A list of images
+   * A list of images, title is optional, it will be displayed when it's available
    *
+   * All images should have a url and a title parameter, if you don't
+   * receive the content like this from the server you can always work out something like:
+   *
+   * datasetFromServer.map((imageData) => {
+   *   imageData.url = imageData.serverUrl;
+   *   imageData.title = imageData.serverTitle;
+   * });
+   * 
    * @type {Immutable.List<any>}
    */
   images = Immutable.List([
@@ -92,7 +127,7 @@ export class AppComponent {
 
 ```
 
-On the template:
+On the template include the component:
 
 ```html
 <h1>Slideshow Demo</h1>
@@ -101,7 +136,7 @@ On the template:
 </section>
 ```
 
-On the stylesheet:
+On the stylesheet you'll need to define at least the height of your container, width is optional and when not defined it will take 100% and scale accordingly:
 
 ```css
 section {
@@ -110,6 +145,14 @@ section {
 }
 ```
 
+## Slideshow Options
+
+```
+showThumbnails
+thumbnailWidth
+showDots
+height
+```
 
 ## Development
 
