@@ -2,7 +2,7 @@
 
 A high speed, fluid and consistent image gallery slideshow target for both desktop and mobile.
 
-ADD DEMO IMAGE
+![docs/screenshot.jpg]()
 
 There are a lot of slideshow components available on the web, although none of them matched completely my needs and requirements; so I've decided to create one. I needed a fast slideshow that doesn't block anything else occurring in the page, that uses Immutable objects as inputs and only relies on native browser support for animations and that allows for swiping on mobile.
 
