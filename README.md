@@ -23,7 +23,7 @@ On top of that, I wanted a slideshow that takes its size from the parent contain
 
 ## Demo
 
-http://igeni.us/ng-slideshow/
+http://ng-slideshow.igeni.us/
 
 ## Docs
 

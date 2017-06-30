@@ -1,13 +1,13 @@
 {
   "name": "ng-slideshow",
-  "version": "0.1.0",
+  "version": "0.8.1",
   "repository": {
     "type": "git",
     "url": "https://github.com/voxmachina/ng-slideshow"
   },
   "author": {
     "name": "Pedro Eugenio",
-    "email": "pedro@7peakssoftware.com"
+    "email": "pedro.t.eugenio@gmail.com"
   },
   "keywords": [
     "angular"

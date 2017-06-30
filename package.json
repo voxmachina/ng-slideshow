@@ -1,6 +1,6 @@
 {
   "name": "ng-slideshow",
-  "version": "0.1.0",
+  "version": "0.8.1",
   "license": "MIT",
   "scripts": {
     "build:package": "gulp build",
