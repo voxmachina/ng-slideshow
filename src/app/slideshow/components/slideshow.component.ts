@@ -419,16 +419,22 @@ export class SlideshowComponent implements AfterViewChecked {
    * @returns {void}
    */
   initializeThumbnailContainer() {
-    const parent = this.elementRef.nativeElement.querySelector('.thumbnails');
+    const parent = this.elementRef.nativeElement.querySelector('.' + DOM_CLASSES.THUMBNAILS);
     const container = parent.querySelector('ul');
     const containerWidth = container.offsetWidth;
     const totalImages = this.images.count();
-    const numElements = Math.ceil(containerWidth / this.options.get('thumbnailWidth'));
+    const thumbnailWidth = this.options.get(OPTIONS.THUMBNAIL_WIDTH);
+
+    if (!thumbnailWidth || isNaN(thumbnailWidth)) {
+      throw new Error('Thumbnail width option is not defined');
+    }
+
+    const numElements = Math.ceil(containerWidth / thumbnailWidth);
 
     if (totalImages > numElements) {
-      parent.classList.remove('no-scroll-right');
+      parent.classList.remove(DOM_CLASSES.NO_SCROLL_RIGHT);
     } else {
-      parent.classList.add('no-scroll-right');
+      parent.classList.add(DOM_CLASSES.NO_SCROLL_RIGHT);
     }
   }
 
@@ -443,9 +449,10 @@ export class SlideshowComponent implements AfterViewChecked {
     const parent = this.elementRef.nativeElement.querySelector('.' + DOM_CLASSES.THUMBNAILS);
     const containerWidth = container.offsetWidth;
     const children = container.querySelectorAll('li');
-    const numElements = Math.ceil(containerWidth / this.options.get('thumbnailWidth'));
+    const thumbnailWidth = this.options.get(OPTIONS.THUMBNAIL_WIDTH);
+    const numElements = Math.ceil(containerWidth / thumbnailWidth);
     const mask = parent.querySelector('.' + DOM_CLASSES.GRADIENT_MASK);
-    const distance = (this.thumbnailOffset + 1) * numElements * this.options.get('thumbnailWidth') - this.options.get('thumbnailWidth');
+    const distance = (this.thumbnailOffset + 1) * numElements * thumbnailWidth - thumbnailWidth;
     const curLeft = parseInt(container.getAttribute('data-left'), 10);
     const newLeft = direction === SLIDE_DIRECTION.NEXT ? (curLeft - distance) + 'px' : (curLeft + distance) + 'px';
     const page = parseInt(container.getAttribute('data-page'), 10);
