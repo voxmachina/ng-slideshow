@@ -147,10 +147,11 @@ section {
 
 ## Slideshow Options
 
-`height`: The slideshow needs a defined initial height to be displayed
-`showThumbnails`: Either or not to display the thumbnail navigation
-`thumbnailWidth`: When using the thumbnail navigation, the thumbnail width must be defined
-`showDots`: Either or not to show the dots navigation component
+- `height`: The slideshow needs a defined initial height to be displayed
+
+- `showThumbnails`: Either or not to display the thumbnail navigation
+- `thumbnailWidth`: When using the thumbnail navigation, the thumbnail width must be defined
+- `showDots`: Either or not to show the dots navigation component
 
 ## Development
 
