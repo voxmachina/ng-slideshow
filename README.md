@@ -47,7 +47,7 @@ import {NgModule} from '@angular/core';
 import {FormsModule} from '@angular/forms';
 import {HttpModule} from '@angular/http';
 import {AppComponent} from './app.component';
-import {SlideshowModule} from './slideshow/slideshow.module'; // IMPORT THE SLIDESHOW MODULE
+import {SlideshowModule} from 'ng-slideshow'; // IMPORT THE SLIDESHOW MODULE
 
 @NgModule({
   declarations: [
@@ -147,12 +147,10 @@ section {
 
 ## Slideshow Options
 
-```
-showThumbnails
-thumbnailWidth
-showDots
-height
-```
+`height`: The slideshow needs a defined initial height to be displayed
+`showThumbnails`: Either or not to display the thumbnail navigation
+`thumbnailWidth`: When using the thumbnail navigation, the thumbnail width must be defined
+`showDots`: Either or not to show the dots navigation component
 
 ## Development
 
