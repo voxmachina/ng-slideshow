@@ -165,7 +165,7 @@ export class SlideshowComponent implements AfterViewChecked {
       .add(direction === SLIDE_DIRECTION.NEXT ? DOM_CLASSES.SLIDE_OUT_LEFT : DOM_CLASSES.SLIDE_OUT_RIGHT);
     slideElement.classList.add(DOM_CLASSES.ACTIVE, DOM_CLASSES.SLIDE_IN);
 
-    this.eventDispatcher.emit({label: SLIDE_DIRECTION.NEXT ? EVENT.SLIDE_NEXT : EVENT.SLIDE_PREVIOUS});
+    this.eventDispatcher.emit({label: direction === SLIDE_DIRECTION.NEXT ? EVENT.SLIDE_NEXT : EVENT.SLIDE_PREVIOUS});
   }
 
   /**
@@ -185,11 +185,16 @@ export class SlideshowComponent implements AfterViewChecked {
    * @returns {void}
    */
   clearActiveElement(target: HTMLElement): void {
-    if (!target.classList.contains('active')) {
+    if (target && !target.classList.contains('active')) {
       return;
     }
 
     const activeElement = this.elementRef.nativeElement.querySelector('.' + DOM_CLASSES.ACTIVE);
+
+    if (!activeElement) {
+      throw new Error('No active element present');
+    }
+
     const nextElement = activeElement.nextElementSibling;
     const previousElement = activeElement.previousElementSibling;
 
@@ -202,27 +207,47 @@ export class SlideshowComponent implements AfterViewChecked {
     );
 
     if (previousElement) {
-      previousElement.classList.add(DOM_CLASSES.LEFT);
-      previousElement.classList.remove(
-        DOM_CLASSES.SLIDE_IN,
-        DOM_CLASSES.RIGHT,
-        DOM_CLASSES.SLIDE_OUT_LEFT,
-        DOM_CLASSES.SLIDE_OUT_RIGHT
-      );
+      this.clearPreviousElement(previousElement);
     }
 
     if (nextElement) {
-      nextElement.classList.add(DOM_CLASSES.RIGHT);
-      nextElement.classList.remove(
-        DOM_CLASSES.SLIDE_IN,
-        DOM_CLASSES.LEFT,
-        DOM_CLASSES.SLIDE_OUT_LEFT,
-        DOM_CLASSES.SLIDE_OUT_RIGHT
-      );
+      this.clearNextElement(nextElement);
     }
 
     this.loadingStateSubscription.dispatch({type: READY});
     this.eventDispatcher.emit({label: EVENT.ACTIVE_TRANSITION_COMPLETE});
+  }
+
+  /**
+   * Clears previous element
+   *
+   * @param element
+   * @returns void
+   */
+  clearPreviousElement(element: HTMLElement): void {
+    element.classList.add(DOM_CLASSES.LEFT);
+    element.classList.remove(
+      DOM_CLASSES.SLIDE_IN,
+      DOM_CLASSES.RIGHT,
+      DOM_CLASSES.SLIDE_OUT_LEFT,
+      DOM_CLASSES.SLIDE_OUT_RIGHT
+    );
+  }
+
+  /**
+   * Clears next element
+   *
+   * @param element
+   * @returns void
+   */
+  clearNextElement(element: HTMLElement): void {
+    element.classList.add(DOM_CLASSES.RIGHT);
+    element.classList.remove(
+      DOM_CLASSES.SLIDE_IN,
+      DOM_CLASSES.LEFT,
+      DOM_CLASSES.SLIDE_OUT_LEFT,
+      DOM_CLASSES.SLIDE_OUT_RIGHT
+    );
   }
 
   /**
@@ -238,7 +263,7 @@ export class SlideshowComponent implements AfterViewChecked {
       this.moveSlide(SLIDE_DIRECTION.NEXT);
     }
 
-    this.eventDispatcher.emit({label: action === SWIPE_ACTION.RIGHT ? EVENT.SWIPE_NEXT : EVENT.SWIPE_PREVIOUS});
+    this.eventDispatcher.emit({label: action === SWIPE_ACTION.RIGHT ? EVENT.SWIPE_PREVIOUS : EVENT.SWIPE_NEXT});
   }
 
   /**
@@ -249,12 +274,15 @@ export class SlideshowComponent implements AfterViewChecked {
    * @returns {any}
    */
   getDomElement(selector: string, single: boolean = true) {
-    let elem = this.domElements.find((domElement) => domElement.selector === selector);
+    const search = this.domElements.filter((domElement) => domElement.selector === selector);
+    let elem;
 
-    if (!elem) {
+    if (search.length > 0) {
+      elem = search[0].elem;
+    } else {
       elem = single ? this.elementRef.nativeElement.querySelector(selector)
         : this.elementRef.nativeElement.querySelectorAll(selector);
-      this.domElements.push({selector: elem});
+      this.domElements.push({selector: selector, elem: elem});
     }
 
     return elem;
