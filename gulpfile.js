@@ -131,7 +131,7 @@ gulp.task('rollup:umd', function () {
       // The name to use for the module for UMD/IIFE bundles
       // (required for bundles with exports)
       // See https://github.com/rollup/rollup/wiki/JavaScript-API#modulename
-      moduleName: '7p-ui-library',
+      moduleName: 'ng-slideshow',
 
       // See https://github.com/rollup/rollup/wiki/JavaScript-API#globals
       globals: {
@@ -139,7 +139,7 @@ gulp.task('rollup:umd', function () {
       }
 
     }))
-    .pipe(rename('7p-ui-library.umd.js'))
+    .pipe(rename('ng-slideshow.umd.js'))
     .pipe(gulp.dest(distFolder));
 });
 
