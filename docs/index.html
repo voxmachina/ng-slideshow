@@ -1,0 +1,454 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>ng-slideshow</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="./images/favicon.ico">
+	    <link rel="stylesheet" href="./styles/style.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="./" class="navbar-brand">ng-slideshow</a>
+            <button type="button" class="btn btn-default btn-menu fa fa-bars" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+            <div id="book-search-input" role="search">
+                <input type="text" placeholder="Type to search">
+            </div>
+            <nav>
+            
+                <ul class="list">
+            
+                    <li class="title">
+                        <a href="./index.html">ng-slideshow</a>
+                    </li>
+            
+                    <li class="divider"></li>
+            
+            
+                    <li class="chapter">
+                        <a data-type="chapter-link" href="./index.html"><span class="fa fa-home"></span>Getting started</a>
+                        <ul class="links">
+                                <li class="link">
+                                    <a href="./index.html"  class="active" ><span class="fa fa-file-text-o"></span>README</a>
+                                </li>
+                                <li class="link">
+                                    <a  href="./overview.html" 
+                                        
+                                         href="./overview.html" 
+                                        
+                                        >
+                                        <span class="fa fa-th"></span>Overview
+                                    </a>
+                                </li>
+                        </ul>
+                    </li>
+            
+            
+                    <li class="chapter">
+                        <a data-type="chapter-link" href="./modules.html" >
+                            <div class="menu-toggler linked" data-toggle="collapse"
+                                    data-target="#xs-modules-links"
+                            >
+                                <span class="fa fa-archive"></span>
+                                <span class="link-name">Modules</span>
+                                <span class="fa fa-angle-up"></span>
+                            </div>
+                        </a>
+                        <ul class="links collapse in"
+                                id="xs-modules-links"
+                            >
+                                <li class="link">
+                                    <a href="./modules/AppModule.html" >AppModule</a>
+                                </li>
+                                <li class="link">
+                                    <a href="./modules/SlideshowModule.html" >SlideshowModule</a>
+                                </li>
+                        </ul>
+                    </li>
+            
+                    <li class="chapter">
+                        <div class="simple menu-toggler" data-toggle="collapse"
+                                data-target="#xs-components-links"
+                            >
+                            <span class="fa fa-cogs"></span>
+                            <span>Components</span>
+                            <span class="fa fa-angle-up"></span>
+                        </div>
+                        <ul class="links collapse in"
+                                id="xs-components-links"
+                            >
+                                <li class="link">
+                                    <a href="./components/AppComponent.html" >AppComponent</a>
+                                </li>
+                                <li class="link">
+                                    <a href="./components/SlideshowComponent.html" >SlideshowComponent</a>
+                                </li>
+                        </ul>
+                    </li>
+            
+            
+                    <li class="chapter">
+                        <div class="simple menu-toggler" data-toggle="collapse"
+                                data-target="#xs-classes-links"
+                            >
+                            <span class="fa fa-file-code-o"></span>
+                            <span>Classes</span>
+                            <span class="fa fa-angle-up"></span>
+                        </div>
+                        <ul class="links collapse in"
+                                id="xs-classes-links"
+                            >
+                                <li class="link">
+                                    <a href="./classes/SlideshowEvent.html" >SlideshowEvent</a>
+                                </li>
+                        </ul>
+                    </li>
+            
+            
+                    <li class="chapter">
+                        <div class="simple menu-toggler" data-toggle="collapse"
+                                data-target="#xs-interfaces-links"
+                            >
+                            <span class="fa fa-info"></span>
+                            <span>Interfaces</span>
+                            <span class="fa fa-angle-up"></span>
+                        </div>
+                        <ul class="links collapse in"
+                                id="xs-interfaces-links"
+                            >
+                                <li class="link">
+                                    <a href="./interfaces/AppState.html" >AppState</a>
+                                </li>
+                        </ul>
+                    </li>
+            
+            
+            
+                    <li class="chapter">
+                        <a data-type="chapter-link" href="./miscellaneous.html" ><span class="fa fa-cubes"></span>Miscellaneous</a>
+                    </li>
+            
+                    <li class="chapter">
+                        <a data-type="chapter-link" href="./coverage.html" ><span class="fa fa-tasks"></span>Documentation coverage</a>
+                    </li>
+            
+            
+                </ul>
+            
+            </nav>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <nav>
+                   
+                       <ul class="list">
+                   
+                           <li class="title">
+                               <a href="./index.html">ng-slideshow</a>
+                           </li>
+                   
+                           <li class="divider"></li>
+                   
+                               <div id="book-search-input" role="search">
+                                   <input type="text" placeholder="Type to search">
+                               </div>
+                   
+                           <li class="chapter">
+                               <a data-type="chapter-link" href="./index.html"><span class="fa fa-home"></span>Getting started</a>
+                               <ul class="links">
+                                       <li class="link">
+                                           <a href="./index.html"  class="active" ><span class="fa fa-file-text-o"></span>README</a>
+                                       </li>
+                                       <li class="link">
+                                           <a  href="./overview.html" 
+                                               
+                                                href="./overview.html" 
+                                               
+                                               >
+                                               <span class="fa fa-th"></span>Overview
+                                           </a>
+                                       </li>
+                               </ul>
+                           </li>
+                   
+                   
+                           <li class="chapter">
+                               <a data-type="chapter-link" href="./modules.html" >
+                                   <div class="menu-toggler linked" data-toggle="collapse"
+                                           data-target="#modules-links"
+                                   >
+                                       <span class="fa fa-archive"></span>
+                                       <span class="link-name">Modules</span>
+                                       <span class="fa fa-angle-up"></span>
+                                   </div>
+                               </a>
+                               <ul class="links collapse in"
+                                       id="modules-links"
+                   >
+                                       <li class="link">
+                                           <a href="./modules/AppModule.html" >AppModule</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="./modules/SlideshowModule.html" >SlideshowModule</a>
+                                       </li>
+                               </ul>
+                           </li>
+                   
+                           <li class="chapter">
+                               <div class="simple menu-toggler" data-toggle="collapse"
+                                       data-target="#components-links"
+                   >
+                                   <span class="fa fa-cogs"></span>
+                                   <span>Components</span>
+                                   <span class="fa fa-angle-up"></span>
+                               </div>
+                               <ul class="links collapse in"
+                                       id="components-links"
+                   >
+                                       <li class="link">
+                                           <a href="./components/AppComponent.html" >AppComponent</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="./components/SlideshowComponent.html" >SlideshowComponent</a>
+                                       </li>
+                               </ul>
+                           </li>
+                   
+                   
+                           <li class="chapter">
+                               <div class="simple menu-toggler" data-toggle="collapse"
+                                       data-target="#classes-links"
+                   >
+                                   <span class="fa fa-file-code-o"></span>
+                                   <span>Classes</span>
+                                   <span class="fa fa-angle-up"></span>
+                               </div>
+                               <ul class="links collapse in"
+                                       id="classes-links"
+                   >
+                                       <li class="link">
+                                           <a href="./classes/SlideshowEvent.html" >SlideshowEvent</a>
+                                       </li>
+                               </ul>
+                           </li>
+                   
+                   
+                           <li class="chapter">
+                               <div class="simple menu-toggler" data-toggle="collapse"
+                                       data-target="#interfaces-links"
+                   >
+                                   <span class="fa fa-info"></span>
+                                   <span>Interfaces</span>
+                                   <span class="fa fa-angle-up"></span>
+                               </div>
+                               <ul class="links collapse in"
+                                       id="interfaces-links"
+                   >
+                                       <li class="link">
+                                           <a href="./interfaces/AppState.html" >AppState</a>
+                                       </li>
+                               </ul>
+                           </li>
+                   
+                   
+                   
+                           <li class="chapter">
+                               <a data-type="chapter-link" href="./miscellaneous.html" ><span class="fa fa-cubes"></span>Miscellaneous</a>
+                           </li>
+                   
+                           <li class="chapter">
+                               <a data-type="chapter-link" href="./coverage.html" ><span class="fa fa-tasks"></span>Documentation coverage</a>
+                           </li>
+                   
+                   
+                       </ul>
+                   
+                   </nav>
+               </div>
+               <div class="content readme">
+                   <div class="content-data">
+<h1 id="angular-2-slideshow">Angular 2+ Slideshow</h1>
+<p>A high speed, fluid and consistent image gallery slideshow target for both desktop and mobile.</p>
+<p><img src="docs/images/screenshot.jpg" alt="&#39;Screenshot&#39;" class="img-responsive"></p>
+<p>There are a lot of slideshow components available on the web, although none of them matched completely my needs and requirements; so I&#39;ve decided to create one. I needed a fast slideshow that doesn&#39;t block anything else occurring in the page, that uses Immutable objects as inputs and only relies on native browser support for animations and that allows for swiping on mobile.</p>
+<p>On top of that, I wanted a slideshow that takes its size from the parent container, so I can easily manipulate it to have a real proper slideshow for different viewports.</p>
+<p><strong>Features</strong>:</p>
+<ul>
+<li>Uses <a href="https://facebook.github.io/immutable-js/">Immutable</a> objects as inputs thus optimizing Angular change detection mechanism</li>
+<li>All animations are purely CSS based</li>
+<li>Supports swipe events for touch devices</li>
+<li>All animations and slide events occur outside of the Angular zone, thus increasing FPS values</li>
+<li>All functionality is covered with unit tests</li>
+<li>Uses images as background images, meaning that the viewport is always the same size for all images</li>
+<li>By using images as background images it allows the slideshow to grown dynamically according to its parent container</li>
+<li>Only needs to have a defined height, width can be automatically calculated from the parent container</li>
+<li>Optionally, a list of thumbnails can be displayed below the main slide for extended navigation</li>
+<li>Optionally, a dot navigation style is also provided</li>
+</ul>
+<h2 id="demo">Demo</h2>
+<p><a href="http://igeni.us/ng-slideshow/">http://igeni.us/ng-slideshow/</a></p>
+<h2 id="requirements">Requirements</h2>
+<p><a href="https://angular.io/">Angular 2+</a></p>
+<p><a href="https://www.npmjs.com/get-npm">NPM</a></p>
+<p><a href="https://nodejs.org">NodeJS</a></p>
+<h2 id="installation">Installation</h2>
+<p><code>npm install ng-slideshow --save</code></p>
+<h2 id="usage">Usage</h2>
+<p>Import <code>SlideshowModule</code> on your app module:</p>
+<pre class="line-numbers"><code class="language-javascript">import {BrowserModule} from &#39;&#64;angular/platform-browser&#39;;
+import {NgModule} from &#39;&#64;angular/core&#39;;
+import {FormsModule} from &#39;&#64;angular/forms&#39;;
+import {HttpModule} from &#39;&#64;angular/http&#39;;
+import {AppComponent} from &#39;./app.component&#39;;
+import {SlideshowModule} from &#39;ng-slideshow&#39;; // IMPORT THE SLIDESHOW MODULE
+
+&#64;NgModule({
+  declarations: [
+    AppComponent
+  ],
+  imports: [
+    SlideshowModule, // IMPORT THE SLIDESHOW MODULE
+    BrowserModule,
+    FormsModule,
+    HttpModule
+  ],
+  providers: [],
+  bootstrap: [AppComponent]
+})
+export class AppModule {
+}</code></pre><p>On the component specify a list of options and a list of images to display:</p>
+<pre class="line-numbers"><code class="language-javascript">import { Component } from &#39;&#64;angular/core&#39;;
+import * as Immutable from &#39;immutable&#39;;
+
+&#64;Component({
+  selector: &#39;app-root&#39;,
+  templateUrl: &#39;./app.component.html&#39;,
+  styleUrls: [&#39;./app.component.scss&#39;]
+})
+export class AppComponent {
+  /**
+   * A list of slideshow options
+   *
+   * &#64;type {Map&lt;string, any&gt;}
+   */
+  options = Immutable.Map({
+    showDots: true,         // Shows a dot navigation component
+    height: 450,            // The initial slideshow height
+    showThumbnails: true,   // Optionally include thumbnails a navigation option
+    thumbnailWidth: 150     // Thumbnail individual width for the thumbnail navigation component
+  });
+
+  /**
+   * A list of images, title is optional, it will be displayed when it&#39;s available
+   *
+   * All images should have a url and a title parameter, if you don&#39;t
+   * receive the content like this from the server you can always work out something like:
+   *
+   * datasetFromServer.map((imageData) =&gt; {
+   *   imageData.url = imageData.serverUrl;
+   *   imageData.title = imageData.serverTitle;
+   * });
+   * 
+   * &#64;type {Immutable.List&lt;any&gt;}
+   */
+  images = Immutable.List([
+    {
+      url: &#39;http://placekitten.com/800/500&#39;,
+      title: &#39;Lorem Ipsum is simply dummy text of the printing and typesetting industry. &#39; +
+      &#39;Lorem Ipsum has been the industrs standard dummy text ever since the 1500s, when an unknown printer &#39; +
+      &#39;took a galley of type and scrambled it to make a type specimen book.&#39;
+    },
+    {url: &#39;http://placekitten.com/1200/500&#39;},
+    {url: &#39;http://placekitten.com/800/300&#39;, title: &#39;cat&#39;},
+    {url: &#39;http://placekitten.com/300/500&#39;, title: &#39;cat&#39;},
+    {url: &#39;http://placekitten.com/860/500&#39;, title: &#39;cat&#39;},
+    {url: &#39;http://placekitten.com/830/500&#39;, title: &#39;cat&#39;},
+    {url: &#39;http://placekitten.com/660/500&#39;, title: &#39;cat&#39;},
+    {url: &#39;http://placekitten.com/720/500&#39;, title: &#39;cat&#39;},
+    {url: &#39;http://placekitten.com/360/300&#39;, title: &#39;cat&#39;},
+    {url: &#39;http://placekitten.com/860/860&#39;, title: &#39;cat&#39;},
+    {url: &#39;http://placekitten.com/800/900&#39;, title: &#39;cat&#39;},
+    {url: &#39;http://placekitten.com/800/1200&#39;, title: &#39;cat&#39;}
+  ]);
+}</code></pre><p>On the template include the component:</p>
+<pre class="line-numbers"><code class="language-html">&lt;h1&gt;Slideshow Demo&lt;/h1&gt;
+&lt;section&gt;
+  &lt;ng-slideshow [options]=&quot;options&quot; [images]=&quot;images&quot;&gt;&lt;/ng-slideshow&gt;
+&lt;/section&gt;</code></pre><p>On the stylesheet you&#39;ll need to define at least the height of your container, width is optional and when not defined it will take 100% and scale accordingly:</p>
+<pre class="line-numbers"><code class="language-css">section {
+  width: 900px; 
+  height: 450px;
+}</code></pre><h2 id="slideshow-options">Slideshow Options</h2>
+<ul>
+<li><p><code>height</code>: The slideshow needs a defined initial height to be displayed</p>
+</li>
+<li><p><code>showThumbnails</code>: Either or not to display the thumbnail navigation</p>
+</li>
+<li><code>thumbnailWidth</code>: When using the thumbnail navigation, the thumbnail width must be defined</li>
+<li><code>showDots</code>: Either or not to show the dots navigation component</li>
+</ul>
+<h2 id="development">Development</h2>
+<p>Feel free to participate in the development of this project, any contribution is more than welcome.</p>
+<p>If you take a look at the main root package file, you should see the development tasks needed to get you going.</p>
+<p>I&#39;ve also included, in the source, a demo app component, so you should be able to just run <code>npm start</code> to see it live, and see a demo of the slideshow.</p>
+<h2 id="running-unit-tests">Running unit tests</h2>
+<p>Run <code>npm run tests-dev</code> to execute the unit tests via <a href="https://karma-runner.github.io">Karma</a>, or <code>npm run tests-ci</code> to execute the unit tests using a headless Chrome version. </p>
+<h1 id="license">License</h1>
+<p>MIT</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+           </div>
+       </div>
+
+       <script src="./js/libs/bootstrap-native.js"></script>
+
+       <script src="./js/libs/es6-shim.min.js"></script>
+       <script src="./js/libs/EventDispatcher.js"></script>
+       <script src="./js/libs/promise.min.js"></script>
+       <script src="./js/libs/zepto.min.js"></script>
+
+       <script src="./js/compodoc.js"></script>
+
+       <script>var COMPODOC_CURRENT_PAGE_DEPTH = 0;</script>
+
+       <script src="./js/search/search.js"></script>
+       <script src="./js/search/lunr.min.js"></script>
+       <script src="./js/search/search-lunr.js"></script>
+
+       <script src="./js/tabs.js"></script>
+       <script src="./js/menu.js"></script>
+       <script src="./js/libs/prism.js"></script>
+       <script src="./js/sourceCode.js"></script>
+       <script src="./js/search/search_index.js"></script>
+
+    </body>
+</html>
