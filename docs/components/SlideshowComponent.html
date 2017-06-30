@@ -1,0 +1,2411 @@
+<!doctype html>
+<html class="no-js" lang="">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="x-ua-compatible" content="ie=edge">
+        <title>ng-slideshow</title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico">
+	    <link rel="stylesheet" href="../styles/style.css">
+    </head>
+    <body>
+
+        <div class="navbar navbar-default navbar-fixed-top visible-xs">
+            <a href="../" class="navbar-brand">ng-slideshow</a>
+            <button type="button" class="btn btn-default btn-menu fa fa-bars" id="btn-menu"></button>
+        </div>
+
+        <div class="xs-menu menu" id="mobile-menu">
+            <div id="book-search-input" role="search">
+                <input type="text" placeholder="Type to search">
+            </div>
+            <nav>
+            
+                <ul class="list">
+            
+                    <li class="title">
+                        <a href="../index.html">ng-slideshow</a>
+                    </li>
+            
+                    <li class="divider"></li>
+            
+            
+                    <li class="chapter">
+                        <a data-type="chapter-link" href="../index.html"><span class="fa fa-home"></span>Getting started</a>
+                        <ul class="links">
+                                <li class="link">
+                                    <a href="../index.html" ><span class="fa fa-file-text-o"></span>README</a>
+                                </li>
+                                <li class="link">
+                                    <a 
+                                        
+                                         href="../overview.html" 
+                                         href="../overview.html" 
+                                        >
+                                        <span class="fa fa-th"></span>Overview
+                                    </a>
+                                </li>
+                        </ul>
+                    </li>
+            
+            
+                    <li class="chapter">
+                        <a data-type="chapter-link" href="../modules.html" >
+                            <div class="menu-toggler linked" data-toggle="collapse"
+                                    data-target="#xs-modules-links"
+                            >
+                                <span class="fa fa-archive"></span>
+                                <span class="link-name">Modules</span>
+                                <span class="fa fa-angle-up"></span>
+                            </div>
+                        </a>
+                        <ul class="links collapse in"
+                                id="xs-modules-links"
+                            >
+                                <li class="link">
+                                    <a href="../modules/AppModule.html" >AppModule</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../modules/SlideshowModule.html" >SlideshowModule</a>
+                                </li>
+                        </ul>
+                    </li>
+            
+                    <li class="chapter">
+                        <div class="simple menu-toggler" data-toggle="collapse"
+                                data-target="#xs-components-links"
+                            >
+                            <span class="fa fa-cogs"></span>
+                            <span>Components</span>
+                            <span class="fa fa-angle-up"></span>
+                        </div>
+                        <ul class="links collapse in"
+                                id="xs-components-links"
+                            >
+                                <li class="link">
+                                    <a href="../components/AppComponent.html" >AppComponent</a>
+                                </li>
+                                <li class="link">
+                                    <a href="../components/SlideshowComponent.html"  data-type="entity-link" class="active" >SlideshowComponent</a>
+                                </li>
+                        </ul>
+                    </li>
+            
+            
+                    <li class="chapter">
+                        <div class="simple menu-toggler" data-toggle="collapse"
+                                data-target="#xs-classes-links"
+                            >
+                            <span class="fa fa-file-code-o"></span>
+                            <span>Classes</span>
+                            <span class="fa fa-angle-up"></span>
+                        </div>
+                        <ul class="links collapse in"
+                                id="xs-classes-links"
+                            >
+                                <li class="link">
+                                    <a href="../classes/SlideshowEvent.html" >SlideshowEvent</a>
+                                </li>
+                        </ul>
+                    </li>
+            
+            
+                    <li class="chapter">
+                        <div class="simple menu-toggler" data-toggle="collapse"
+                                data-target="#xs-interfaces-links"
+                            >
+                            <span class="fa fa-info"></span>
+                            <span>Interfaces</span>
+                            <span class="fa fa-angle-up"></span>
+                        </div>
+                        <ul class="links collapse in"
+                                id="xs-interfaces-links"
+                            >
+                                <li class="link">
+                                    <a href="../interfaces/AppState.html" >AppState</a>
+                                </li>
+                        </ul>
+                    </li>
+            
+            
+            
+                    <li class="chapter">
+                        <a data-type="chapter-link" href="../miscellaneous.html" ><span class="fa fa-cubes"></span>Miscellaneous</a>
+                    </li>
+            
+                    <li class="chapter">
+                        <a data-type="chapter-link" href="../coverage.html" ><span class="fa fa-tasks"></span>Documentation coverage</a>
+                    </li>
+            
+            
+                </ul>
+            
+            </nav>
+        </div>
+
+        <div class="container-fluid main">
+           <div class="row main">
+               <div class="hidden-xs menu">
+                   <nav>
+                   
+                       <ul class="list">
+                   
+                           <li class="title">
+                               <a href="../index.html">ng-slideshow</a>
+                           </li>
+                   
+                           <li class="divider"></li>
+                   
+                               <div id="book-search-input" role="search">
+                                   <input type="text" placeholder="Type to search">
+                               </div>
+                   
+                           <li class="chapter">
+                               <a data-type="chapter-link" href="../index.html"><span class="fa fa-home"></span>Getting started</a>
+                               <ul class="links">
+                                       <li class="link">
+                                           <a href="../index.html" ><span class="fa fa-file-text-o"></span>README</a>
+                                       </li>
+                                       <li class="link">
+                                           <a 
+                                               
+                                                href="../overview.html" 
+                                                href="../overview.html" 
+                                               >
+                                               <span class="fa fa-th"></span>Overview
+                                           </a>
+                                       </li>
+                               </ul>
+                           </li>
+                   
+                   
+                           <li class="chapter">
+                               <a data-type="chapter-link" href="../modules.html" >
+                                   <div class="menu-toggler linked" data-toggle="collapse"
+                                           data-target="#modules-links"
+                                   >
+                                       <span class="fa fa-archive"></span>
+                                       <span class="link-name">Modules</span>
+                                       <span class="fa fa-angle-up"></span>
+                                   </div>
+                               </a>
+                               <ul class="links collapse in"
+                                       id="modules-links"
+                   >
+                                       <li class="link">
+                                           <a href="../modules/AppModule.html" >AppModule</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../modules/SlideshowModule.html" >SlideshowModule</a>
+                                       </li>
+                               </ul>
+                           </li>
+                   
+                           <li class="chapter">
+                               <div class="simple menu-toggler" data-toggle="collapse"
+                                       data-target="#components-links"
+                   >
+                                   <span class="fa fa-cogs"></span>
+                                   <span>Components</span>
+                                   <span class="fa fa-angle-up"></span>
+                               </div>
+                               <ul class="links collapse in"
+                                       id="components-links"
+                   >
+                                       <li class="link">
+                                           <a href="../components/AppComponent.html" >AppComponent</a>
+                                       </li>
+                                       <li class="link">
+                                           <a href="../components/SlideshowComponent.html"  data-type="entity-link" class="active" >SlideshowComponent</a>
+                                       </li>
+                               </ul>
+                           </li>
+                   
+                   
+                           <li class="chapter">
+                               <div class="simple menu-toggler" data-toggle="collapse"
+                                       data-target="#classes-links"
+                   >
+                                   <span class="fa fa-file-code-o"></span>
+                                   <span>Classes</span>
+                                   <span class="fa fa-angle-up"></span>
+                               </div>
+                               <ul class="links collapse in"
+                                       id="classes-links"
+                   >
+                                       <li class="link">
+                                           <a href="../classes/SlideshowEvent.html" >SlideshowEvent</a>
+                                       </li>
+                               </ul>
+                           </li>
+                   
+                   
+                           <li class="chapter">
+                               <div class="simple menu-toggler" data-toggle="collapse"
+                                       data-target="#interfaces-links"
+                   >
+                                   <span class="fa fa-info"></span>
+                                   <span>Interfaces</span>
+                                   <span class="fa fa-angle-up"></span>
+                               </div>
+                               <ul class="links collapse in"
+                                       id="interfaces-links"
+                   >
+                                       <li class="link">
+                                           <a href="../interfaces/AppState.html" >AppState</a>
+                                       </li>
+                               </ul>
+                           </li>
+                   
+                   
+                   
+                           <li class="chapter">
+                               <a data-type="chapter-link" href="../miscellaneous.html" ><span class="fa fa-cubes"></span>Miscellaneous</a>
+                           </li>
+                   
+                           <li class="chapter">
+                               <a data-type="chapter-link" href="../coverage.html" ><span class="fa fa-tasks"></span>Documentation coverage</a>
+                           </li>
+                   
+                   
+                       </ul>
+                   
+                   </nav>
+               </div>
+               <div class="content component">
+                   <div class="content-data">
+
+
+<ol class="breadcrumb">
+  <li>Components</li>
+  <li>SlideshowComponent</li>
+</ol>
+
+<ul class="nav nav-tabs" role="tablist">
+    <li class="active">
+        <a href="#infos" id="infos-tab" role="tab" data-toggle="tab" data-link="infos">Infos</a>
+    </li>
+
+    <li>
+        <a href="#source" role="tab" id="source-tab" data-toggle="tab" data-link="source">Source</a>
+    </li>
+
+    <li>
+        <a href="#templateData" role="tab" id="templateData-tab" data-toggle="tab" data-link="template">Template</a>
+    </li>
+    <li>
+        <a href="#tree" role="tab" id="tree-tab" data-toggle="tab" data-link="dom-tree">DOM Tree</a>
+    </li>
+</ul>
+
+<div class="tab-content">
+    <div class="tab-pane fade active in" id="infos"><p class="comment">
+    <h3>File</h3>
+</p>
+<p class="comment">
+    <code>src/app/slideshow/components/slideshow.component.ts</code>
+</p>
+
+
+
+    <p class="comment">
+        <h3>Implements</h3>
+    </p>
+    <p class="comment">
+                <code><a href="https://angular.io/docs/ts/latest/api/core/index/AfterViewChecked-interface.html" target="_blank" >AfterViewChecked</a></code>
+    </p>
+
+
+<section>
+    <h3>Metadata</h3>
+    <table class="table table-sm table-hover">
+        <tbody>
+
+            <tr>
+                <td class="col-md-3">changeDetection</td>
+                <td class="col-md-9"><code>ChangeDetectionStrategy.OnPush</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">encapsulation</td>
+                <td class="col-md-9"><code>ViewEncapsulation.None</code></td>
+            </tr>
+
+
+
+
+
+
+
+
+
+
+            <tr>
+                <td class="col-md-3">selector</td>
+                <td class="col-md-9"><code>ng-slideshow</code></td>
+            </tr>
+
+            <tr>
+                <td class="col-md-3">styleUrls</td>
+                <td class="col-md-9"><code>slideshow.component.scss</code></td>
+            </tr>
+
+
+
+            <tr>
+                <td class="col-md-3">templateUrl</td>
+                <td class="col-md-9"><code>./slideshow.component.html</code></td>
+            </tr>
+
+
+        </tbody>
+    </table>
+</section>
+
+    <section>
+        <h3 id="inputs">Inputs</h3>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-2">
+                            <code>images</code>
+                        </td>
+                        <td class="col-md-10">
+                            <div><p>The immutable list of images</p>
+</div>
+                              <p>
+                                <em>Type:</em>    <code>any</code>
+
+                              </p>
+                        </td>
+                    </tr>
+                            <tr>
+                                <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="33" class="link-to-prism">src/app/slideshow/components/slideshow.component.ts:33</a></div>
+                                </td>
+                            </tr>
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-2">
+                            <code>options</code>
+                        </td>
+                        <td class="col-md-10">
+                            <div><p>Configurable options for the slideshow</p>
+</div>
+                              <p>
+                                <em>Type:</em>    <code>any</code>
+
+                              </p>
+                        </td>
+                    </tr>
+                            <tr>
+                                <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="40" class="link-to-prism">src/app/slideshow/components/slideshow.component.ts:40</a></div>
+                                </td>
+                            </tr>
+                </tbody>
+            </table>
+    </section>
+
+    <section>
+        <h3 id="outputs">Outputs</h3>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-2">
+                            <code>eventDispatcher</code>
+                        </td>
+                        <td class="col-md-10">
+                            <div><p>Event dispatcher</p>
+</div>
+                            <em><code>$event</code> type:</em>    <code>any</code>
+
+                        </td>
+                    </tr>
+                            <tr>
+                                <td class="col-md-2" colspan="2">
+                                    <div class="io-line">Defined in <a href="" data-line="47" class="link-to-prism">src/app/slideshow/components/slideshow.component.ts:47</a></div>
+                                </td>
+                            </tr>
+                </tbody>
+            </table>
+    </section>
+
+    <section>
+        <h3 id="constructor">Constructor</h3>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <code>constructor(domSanitizer: any, store: any, elementRef: any, zone: any)</code>
+                        </td>
+                    </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="89" class="link-to-prism">src/app/slideshow/components/slideshow.component.ts:89</a></div>
+                                </td>
+                            </tr>
+    
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-description">
+                                        <b>Parameters :</b>
+                                        <ul class="jsdoc-params">
+                                                <li>
+                                                    <div>
+                                                        <b>domSanitizer</b>
+                                                    </div>
+                                                    <div>
+                                                        
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div>
+                                                        <b>store</b>
+                                                    </div>
+                                                    <div>
+                                                        
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div>
+                                                        <b>elementRef</b>
+                                                    </div>
+                                                    <div>
+                                                        
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div>
+                                                        <b>zone</b>
+                                                    </div>
+                                                    <div>
+                                                        
+                                                    </div>
+                                                </li>
+                                        </ul>
+                                </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+    </section>
+
+    <section>
+        
+            <h3 id="methods">
+                Methods
+            </h3>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <b> ngAfterViewChecked</b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+    <code>ngAfterViewChecked()</code>
+                        </td>
+                    </tr>
+    
+    
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="119" class="link-to-prism">src/app/slideshow/components/slideshow.component.ts:119</a></div>
+                                </td>
+                            </tr>
+    
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-description"><p>After view is checked event</p>
+    </div>
+    
+                                <div class="io-description">
+                                </div>
+                                <div class="io-description">
+                                    <b>Returns : </b>    <code>void</code>
+    
+                                </div>
+                                    <div class="io-description">
+                                        
+                                    </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <b> moveSlide</b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+    <code>moveSlide(direction: string, evt: any)</code>
+                        </td>
+                    </tr>
+    
+    
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="132" class="link-to-prism">src/app/slideshow/components/slideshow.component.ts:132</a></div>
+                                </td>
+                            </tr>
+    
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-description"><p>Moves a slide outside of the Angular Zone</p>
+    </div>
+    
+                                <div class="io-description">
+                                        <b>Parameters :</b>
+                                        <ul class="jsdoc-params">
+                                                <li>
+                                                    <div>
+                                                        <b>direction</b>
+                                                    </div>
+                                                    <div>
+                                                        
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div>
+                                                        <b>evt</b>
+                                                    </div>
+                                                    <div>
+                                                        
+                                                    </div>
+                                                </li>
+                                        </ul>
+                                </div>
+                                <div class="io-description">
+                                    <b>Returns : </b>    <code>void</code>
+    
+                                </div>
+                                    <div class="io-description">
+                                        
+                                    </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <b> slide</b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+    <code>slide(direction: string)</code>
+                        </td>
+                    </tr>
+    
+    
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="146" class="link-to-prism">src/app/slideshow/components/slideshow.component.ts:146</a></div>
+                                </td>
+                            </tr>
+    
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-description"><p>Slides an Element given a direction</p>
+    </div>
+    
+                                <div class="io-description">
+                                        <b>Parameters :</b>
+                                        <ul class="jsdoc-params">
+                                                <li>
+                                                    <div>
+                                                        <b>direction</b>
+                                                    </div>
+                                                    <div>
+                                                        
+                                                    </div>
+                                                </li>
+                                        </ul>
+                                </div>
+                                <div class="io-description">
+                                    <b>Returns : </b>    <code>void</code>
+    
+                                </div>
+                                    <div class="io-description">
+                                        
+                                    </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <b> onActiveTransitionEnd</b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+    <code>onActiveTransitionEnd(evt: any)</code>
+                        </td>
+                    </tr>
+    
+    
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="177" class="link-to-prism">src/app/slideshow/components/slideshow.component.ts:177</a></div>
+                                </td>
+                            </tr>
+    
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-description"><p>On the active element transition end event</p>
+    </div>
+    
+                                <div class="io-description">
+                                        <b>Parameters :</b>
+                                        <ul class="jsdoc-params">
+                                                <li>
+                                                    <div>
+                                                        <b>evt</b>
+                                                    </div>
+                                                    <div>
+                                                        
+                                                    </div>
+                                                </li>
+                                        </ul>
+                                </div>
+                                <div class="io-description">
+                                    <b>Returns : </b>    <code>void</code>
+    
+                                </div>
+                                    <div class="io-description">
+                                        <p>void</p>
+    
+                                    </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <b> clearActiveElement</b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+    <code>clearActiveElement(target: any)</code>
+                        </td>
+                    </tr>
+    
+    
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="187" class="link-to-prism">src/app/slideshow/components/slideshow.component.ts:187</a></div>
+                                </td>
+                            </tr>
+    
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-description"><p>Clears the current active element</p>
+    </div>
+    
+                                <div class="io-description">
+                                        <b>Parameters :</b>
+                                        <ul class="jsdoc-params">
+                                                <li>
+                                                    <div>
+                                                        <b>target</b>
+                                                    </div>
+                                                    <div>
+                                                        
+                                                    </div>
+                                                </li>
+                                        </ul>
+                                </div>
+                                <div class="io-description">
+                                    <b>Returns : </b>    <code>void</code>
+    
+                                </div>
+                                    <div class="io-description">
+                                        
+                                    </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <b> clearPreviousElement</b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+    <code>clearPreviousElement(element: any)</code>
+                        </td>
+                    </tr>
+    
+    
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="227" class="link-to-prism">src/app/slideshow/components/slideshow.component.ts:227</a></div>
+                                </td>
+                            </tr>
+    
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-description"><p>Clears previous element</p>
+    </div>
+    
+                                <div class="io-description">
+                                        <b>Parameters :</b>
+                                        <ul class="jsdoc-params">
+                                                <li>
+                                                    <div>
+                                                        <b>element</b>
+                                                    </div>
+                                                    <div>
+                                                        
+                                                    </div>
+                                                </li>
+                                        </ul>
+                                </div>
+                                <div class="io-description">
+                                    <b>Returns : </b>    <code>void</code>
+    
+                                </div>
+                                    <div class="io-description">
+                                        <p>void</p>
+    
+                                    </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <b> clearNextElement</b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+    <code>clearNextElement(element: any)</code>
+                        </td>
+                    </tr>
+    
+    
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="243" class="link-to-prism">src/app/slideshow/components/slideshow.component.ts:243</a></div>
+                                </td>
+                            </tr>
+    
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-description"><p>Clears next element</p>
+    </div>
+    
+                                <div class="io-description">
+                                        <b>Parameters :</b>
+                                        <ul class="jsdoc-params">
+                                                <li>
+                                                    <div>
+                                                        <b>element</b>
+                                                    </div>
+                                                    <div>
+                                                        
+                                                    </div>
+                                                </li>
+                                        </ul>
+                                </div>
+                                <div class="io-description">
+                                    <b>Returns : </b>    <code>void</code>
+    
+                                </div>
+                                    <div class="io-description">
+                                        <p>void</p>
+    
+                                    </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <b> swipe</b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+    <code>swipe(action: any)</code>
+                        </td>
+                    </tr>
+    
+    
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="259" class="link-to-prism">src/app/slideshow/components/slideshow.component.ts:259</a></div>
+                                </td>
+                            </tr>
+    
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-description"><p>On swipe events</p>
+    </div>
+    
+                                <div class="io-description">
+                                        <b>Parameters :</b>
+                                        <ul class="jsdoc-params">
+                                                <li>
+                                                    <div>
+                                                        <b>action</b>
+                                                    </div>
+                                                    <div>
+                                                        
+                                                    </div>
+                                                </li>
+                                        </ul>
+                                </div>
+                                <div class="io-description">
+                                    <b>Returns : </b>    <code>void</code>
+    
+                                </div>
+                                    <div class="io-description">
+                                        <p>void</p>
+    
+                                    </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <b> getDomElement</b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+    <code>getDomElement(selector: string, single: boolean)</code>
+                        </td>
+                    </tr>
+    
+    
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="276" class="link-to-prism">src/app/slideshow/components/slideshow.component.ts:276</a></div>
+                                </td>
+                            </tr>
+    
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-description"><p>Returns a HTML Element</p>
+    </div>
+    
+                                <div class="io-description">
+                                        <b>Parameters :</b>
+                                        <ul class="jsdoc-params">
+                                                <li>
+                                                    <div>
+                                                        <b>selector</b>
+                                                    </div>
+                                                    <div>
+                                                        
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div>
+                                                        <b>single</b>
+                                                    </div>
+                                                    <div>
+                                                        
+                                                    </div>
+                                                </li>
+                                        </ul>
+                                </div>
+                                <div class="io-description">
+                                    <b>Returns : </b>    <code>void</code>
+    
+                                </div>
+                                    <div class="io-description">
+                                        
+                                    </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <b> moveLeft</b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+    <code>moveLeft(elem: any)</code>
+                        </td>
+                    </tr>
+    
+    
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="297" class="link-to-prism">src/app/slideshow/components/slideshow.component.ts:297</a></div>
+                                </td>
+                            </tr>
+    
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-description"><p>Sets an element to the left</p>
+    </div>
+    
+                                <div class="io-description">
+                                        <b>Parameters :</b>
+                                        <ul class="jsdoc-params">
+                                                <li>
+                                                    <div>
+                                                        <b>elem</b>
+                                                    </div>
+                                                    <div>
+                                                        
+                                                    </div>
+                                                </li>
+                                        </ul>
+                                </div>
+                                <div class="io-description">
+                                    <b>Returns : </b>    <code>void</code>
+    
+                                </div>
+                                    <div class="io-description">
+                                        
+                                    </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <b> moveRight</b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+    <code>moveRight(elem: any)</code>
+                        </td>
+                    </tr>
+    
+    
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="309" class="link-to-prism">src/app/slideshow/components/slideshow.component.ts:309</a></div>
+                                </td>
+                            </tr>
+    
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-description"><p>Sets an element to the right</p>
+    </div>
+    
+                                <div class="io-description">
+                                        <b>Parameters :</b>
+                                        <ul class="jsdoc-params">
+                                                <li>
+                                                    <div>
+                                                        <b>elem</b>
+                                                    </div>
+                                                    <div>
+                                                        
+                                                    </div>
+                                                </li>
+                                        </ul>
+                                </div>
+                                <div class="io-description">
+                                    <b>Returns : </b>    <code>void</code>
+    
+                                </div>
+                                    <div class="io-description">
+                                        
+                                    </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <b> slideLeft</b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+    <code>slideLeft(elem: any)</code>
+                        </td>
+                    </tr>
+    
+    
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="321" class="link-to-prism">src/app/slideshow/components/slideshow.component.ts:321</a></div>
+                                </td>
+                            </tr>
+    
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-description"><p>Slides an element to the left</p>
+    </div>
+    
+                                <div class="io-description">
+                                        <b>Parameters :</b>
+                                        <ul class="jsdoc-params">
+                                                <li>
+                                                    <div>
+                                                        <b>elem</b>
+                                                    </div>
+                                                    <div>
+                                                        
+                                                    </div>
+                                                </li>
+                                        </ul>
+                                </div>
+                                <div class="io-description">
+                                    <b>Returns : </b>    <code>void</code>
+    
+                                </div>
+                                    <div class="io-description">
+                                        
+                                    </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <b> slideRight</b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+    <code>slideRight(elem: any)</code>
+                        </td>
+                    </tr>
+    
+    
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="334" class="link-to-prism">src/app/slideshow/components/slideshow.component.ts:334</a></div>
+                                </td>
+                            </tr>
+    
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-description"><p>Slides an element to the right</p>
+    </div>
+    
+                                <div class="io-description">
+                                        <b>Parameters :</b>
+                                        <ul class="jsdoc-params">
+                                                <li>
+                                                    <div>
+                                                        <b>elem</b>
+                                                    </div>
+                                                    <div>
+                                                        
+                                                    </div>
+                                                </li>
+                                        </ul>
+                                </div>
+                                <div class="io-description">
+                                    <b>Returns : </b>    <code>void</code>
+    
+                                </div>
+                                    <div class="io-description">
+                                        
+                                    </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <b> slideIn</b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+    <code>slideIn(elem: any)</code>
+                        </td>
+                    </tr>
+    
+    
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="347" class="link-to-prism">src/app/slideshow/components/slideshow.component.ts:347</a></div>
+                                </td>
+                            </tr>
+    
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-description"><p>Slides in an element</p>
+    </div>
+    
+                                <div class="io-description">
+                                        <b>Parameters :</b>
+                                        <ul class="jsdoc-params">
+                                                <li>
+                                                    <div>
+                                                        <b>elem</b>
+                                                    </div>
+                                                    <div>
+                                                        
+                                                    </div>
+                                                </li>
+                                        </ul>
+                                </div>
+                                <div class="io-description">
+                                    <b>Returns : </b>    <code>void</code>
+    
+                                </div>
+                                    <div class="io-description">
+                                        
+                                    </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <b> showByIndex</b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+    <code>showByIndex(index: number)</code>
+                        </td>
+                    </tr>
+    
+    
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="358" class="link-to-prism">src/app/slideshow/components/slideshow.component.ts:358</a></div>
+                                </td>
+                            </tr>
+    
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-description"><p>Show an element given its index</p>
+    </div>
+    
+                                <div class="io-description">
+                                        <b>Parameters :</b>
+                                        <ul class="jsdoc-params">
+                                                <li>
+                                                    <div>
+                                                        <b>index</b>
+                                                    </div>
+                                                    <div>
+                                                        
+                                                    </div>
+                                                </li>
+                                        </ul>
+                                </div>
+                                <div class="io-description">
+                                    <b>Returns : </b>    <code>void</code>
+    
+                                </div>
+                                    <div class="io-description">
+                                        <p>void</p>
+    
+                                    </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <b> slideInElementByIndex</b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+    <code>slideInElementByIndex(index: number)</code>
+                        </td>
+                    </tr>
+    
+    
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="368" class="link-to-prism">src/app/slideshow/components/slideshow.component.ts:368</a></div>
+                                </td>
+                            </tr>
+    
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-description"><p>Slides in an element given its index</p>
+    </div>
+    
+                                <div class="io-description">
+                                        <b>Parameters :</b>
+                                        <ul class="jsdoc-params">
+                                                <li>
+                                                    <div>
+                                                        <b>index</b>
+                                                    </div>
+                                                    <div>
+                                                        
+                                                    </div>
+                                                </li>
+                                        </ul>
+                                </div>
+                                <div class="io-description">
+                                    <b>Returns : </b>    <code>void</code>
+    
+                                </div>
+                                    <div class="io-description">
+                                        
+                                    </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <b> replaceActiveElement</b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+    <code>replaceActiveElement(activeElement: any, replacementElement: any, direction: string)</code>
+                        </td>
+                    </tr>
+    
+    
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="404" class="link-to-prism">src/app/slideshow/components/slideshow.component.ts:404</a></div>
+                                </td>
+                            </tr>
+    
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-description"><p>Replaces current active element</p>
+    </div>
+    
+                                <div class="io-description">
+                                        <b>Parameters :</b>
+                                        <ul class="jsdoc-params">
+                                                <li>
+                                                    <div>
+                                                        <b>activeElement</b>
+                                                    </div>
+                                                    <div>
+                                                        
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div>
+                                                        <b>replacementElement</b>
+                                                    </div>
+                                                    <div>
+                                                        
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div>
+                                                        <b>direction</b>
+                                                    </div>
+                                                    <div>
+                                                        
+                                                    </div>
+                                                </li>
+                                        </ul>
+                                </div>
+                                <div class="io-description">
+                                    <b>Returns : </b>    <code>void</code>
+    
+                                </div>
+                                    <div class="io-description">
+                                        
+                                    </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <b> initializeThumbnailContainer</b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+    <code>initializeThumbnailContainer()</code>
+                        </td>
+                    </tr>
+    
+    
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="421" class="link-to-prism">src/app/slideshow/components/slideshow.component.ts:421</a></div>
+                                </td>
+                            </tr>
+    
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-description"><p>Initializes the thumbnails container</p>
+    </div>
+    
+                                <div class="io-description">
+                                </div>
+                                <div class="io-description">
+                                    <b>Returns : </b>    <code>void</code>
+    
+                                </div>
+                                    <div class="io-description">
+                                        
+                                    </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <b> slideThumbnails</b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+    <code>slideThumbnails(container: any, direction: string)</code>
+                        </td>
+                    </tr>
+    
+    
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="448" class="link-to-prism">src/app/slideshow/components/slideshow.component.ts:448</a></div>
+                                </td>
+                            </tr>
+    
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-description"><p>Slides thumbnails to a given direction</p>
+    </div>
+    
+                                <div class="io-description">
+                                        <b>Parameters :</b>
+                                        <ul class="jsdoc-params">
+                                                <li>
+                                                    <div>
+                                                        <b>container</b>
+                                                    </div>
+                                                    <div>
+                                                        
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div>
+                                                        <b>direction</b>
+                                                    </div>
+                                                    <div>
+                                                        
+                                                    </div>
+                                                </li>
+                                        </ul>
+                                </div>
+                                <div class="io-description">
+                                    <b>Returns : </b>    <code>void</code>
+    
+                                </div>
+                                    <div class="io-description">
+                                        
+                                    </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <b> moveThumbnailsRight</b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+    <code>moveThumbnailsRight(container: any)</code>
+                        </td>
+                    </tr>
+    
+    
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="488" class="link-to-prism">src/app/slideshow/components/slideshow.component.ts:488</a></div>
+                                </td>
+                            </tr>
+    
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-description"><p>Slides thumbnails to right</p>
+    </div>
+    
+                                <div class="io-description">
+                                        <b>Parameters :</b>
+                                        <ul class="jsdoc-params">
+                                                <li>
+                                                    <div>
+                                                        <b>container</b>
+                                                    </div>
+                                                    <div>
+                                                        
+                                                    </div>
+                                                </li>
+                                        </ul>
+                                </div>
+                                <div class="io-description">
+                                    <b>Returns : </b>    <code>void</code>
+    
+                                </div>
+                                    <div class="io-description">
+                                        
+                                    </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <b> moveThumbnailsLeft</b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+    <code>moveThumbnailsLeft(container: any)</code>
+                        </td>
+                    </tr>
+    
+    
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="499" class="link-to-prism">src/app/slideshow/components/slideshow.component.ts:499</a></div>
+                                </td>
+                            </tr>
+    
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-description"><p>Slides thumbnails to left</p>
+    </div>
+    
+                                <div class="io-description">
+                                        <b>Parameters :</b>
+                                        <ul class="jsdoc-params">
+                                                <li>
+                                                    <div>
+                                                        <b>container</b>
+                                                    </div>
+                                                    <div>
+                                                        
+                                                    </div>
+                                                </li>
+                                        </ul>
+                                </div>
+                                <div class="io-description">
+                                    <b>Returns : </b>    <code>void</code>
+    
+                                </div>
+                                    <div class="io-description">
+                                        
+                                    </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <b> getSafeUrl</b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+    <code>getSafeUrl(imageUrl: string)</code>
+                        </td>
+                    </tr>
+    
+    
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="510" class="link-to-prism">src/app/slideshow/components/slideshow.component.ts:510</a></div>
+                                </td>
+                            </tr>
+    
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-description"><p>Gets a protected safe url to use</p>
+    </div>
+    
+                                <div class="io-description">
+                                        <b>Parameters :</b>
+                                        <ul class="jsdoc-params">
+                                                <li>
+                                                    <div>
+                                                        <b>imageUrl</b>
+                                                    </div>
+                                                    <div>
+                                                        
+                                                    </div>
+                                                </li>
+                                        </ul>
+                                </div>
+                                <div class="io-description">
+                                    <b>Returns : </b>    <code>any</code>
+    
+                                </div>
+                                    <div class="io-description">
+                                        
+                                    </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+    </section>
+
+    <section>
+        
+            <h3 id="inputs">
+                Properties
+            </h3>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <b> domElements</b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <code>domElements:     <code>any</code>
+    </bcode>
+                        </td>
+                    </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="89" class="link-to-prism">src/app/slideshow/components/slideshow.component.ts:89</a></div>
+                                </td>
+                            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-description"><p>A list of DOM Elements</p>
+    </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <b> loadingStateSubscription</b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <code>loadingStateSubscription:     <code>any</code>
+    </bcode>
+                        </td>
+                    </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="61" class="link-to-prism">src/app/slideshow/components/slideshow.component.ts:61</a></div>
+                                </td>
+                            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-description"><p>Loading state subscription</p>
+    </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <b> loadingStatus</b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <code>loadingStatus:     <code>string</code>
+    </bcode>
+                        </td>
+                    </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="75" class="link-to-prism">src/app/slideshow/components/slideshow.component.ts:75</a></div>
+                                </td>
+                            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-description"><p>Loading status</p>
+    </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <b> offsetStateSubscription</b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <code>offsetStateSubscription:     <code>any</code>
+    </bcode>
+                        </td>
+                    </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="54" class="link-to-prism">src/app/slideshow/components/slideshow.component.ts:54</a></div>
+                                </td>
+                            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-description"><p>Offset state subscription</p>
+    </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <b> offsetStatus</b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <code>offsetStatus:     <code>number</code>
+    </bcode>
+                        </td>
+                    </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="68" class="link-to-prism">src/app/slideshow/components/slideshow.component.ts:68</a></div>
+                                </td>
+                            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-description"><p>Offset status</p>
+    </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+            <table class="table table-sm table-bordered">
+                <tbody>
+                    <tr>
+                        <td class="col-md-4">
+                            <b> thumbnailOffset</b>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <code>thumbnailOffset:     <code>number</code>
+    </bcode>
+                        </td>
+                    </tr>
+                        <tr>
+                            <td class="col-md-4">
+                                <i>Default value : </i><code>0</code>
+                            </td>
+                        </tr>
+                            <tr>
+                                <td class="col-md-4">
+                                    <div class="io-line">Defined in <a href="" data-line="82" class="link-to-prism">src/app/slideshow/components/slideshow.component.ts:82</a></div>
+                                </td>
+                            </tr>
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-description"><p>Thumbnail offset</p>
+    </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+    </section>
+</div>
+
+
+    <div class="tab-pane fade tab-source-code" id="source">
+        <pre class="line-numbers"><code class="language-typescript">import {
+  AfterViewChecked,
+  ChangeDetectionStrategy, Component, ElementRef, EventEmitter, Input, NgZone, Output,
+  ViewEncapsulation
+} from &#x27;@angular/core&#x27;;
+import {Store} from &#x27;@ngrx/store&#x27;;
+import * as Immutable from &#x27;immutable&#x27;;
+import {DomSanitizer, SafeUrl} from &#x27;@angular/platform-browser&#x27;;
+import {AppState} from &#x27;../models/state.model&#x27;;
+import {SWIPE_ACTION} from &#x27;../enums/swipe-action.enum&#x27;;
+import {DOM_CLASSES} from &#x27;../enums/dom-classes.enum&#x27;;
+import {SLIDE_DIRECTION} from &#x27;../enums/slide-direction.enum&#x27;;
+import {EVENT} from &#x27;../enums/slideshow-event.enum&#x27;;
+import {SlideshowEvent} from &#x27;../models/slideshow-event.model&#x27;;
+import {READY, SLIDING} from &#x27;../reducers/loading-state.reducer&#x27;;
+import {DECREMENT, INCREMENT, RESET} from &#x27;../reducers/offset-state.reducer&#x27;;
+import {OPTIONS} from &#x27;../enums/options.enum&#x27;;
+
+@Component({
+  selector: &#x27;ng-slideshow&#x27;,
+  templateUrl: &#x27;./slideshow.component.html&#x27;,
+  styleUrls: [&#x27;./slideshow.component.scss&#x27;],
+  encapsulation: ViewEncapsulation.None,
+  changeDetection: ChangeDetectionStrategy.OnPush
+})
+export class SlideshowComponent implements AfterViewChecked {
+
+  /**
+   * The immutable list of images
+   *
+   *@type {Immutable.List&lt;any&gt;}
+   */
+  @Input() images: Immutable.List&lt;any&gt; &#x3D; Immutable.List&lt;any&gt;();
+
+  /**
+   * Configurable options for the slideshow
+   *
+   * @type {Immutable.List&lt;any&gt;}
+   */
+  @Input() options: Immutable.Map&lt;any, any&gt; &#x3D; Immutable.Map();
+
+  /**
+   * Event dispatcher
+   *
+   * @type {EventEmitter&lt;SlideshowEvent&gt;}
+   */
+  @Output() eventDispatcher: EventEmitter&lt;SlideshowEvent&gt; &#x3D; new EventEmitter&lt;SlideshowEvent&gt;();
+
+  /**
+   * Offset state subscription
+   *
+   * @type any
+   */
+  offsetStateSubscription: any;
+
+  /**
+   * Loading state subscription
+   *
+   * @type any
+   */
+  loadingStateSubscription: any;
+
+  /**
+   * Offset status
+   *
+   * @type number
+   */
+  offsetStatus: number;
+
+  /**
+   * Loading status
+   *
+   * @type string
+   */
+  loadingStatus: string;
+
+  /**
+   * Thumbnail offset
+   *
+   * @type number
+   */
+  thumbnailOffset &#x3D; 0;
+
+  /**
+   * A list of DOM Elements
+   *
+   * @type Array&lt;any&gt;
+   */
+  domElements: Array&lt;any&gt; &#x3D; [];
+
+  /**
+   * @constructor
+   * @param domSanitizer
+   * @param store
+   * @param elementRef
+   * @param zone
+   */
+  constructor(private domSanitizer: DomSanitizer,
+              private store: Store&lt;AppState&gt;,
+              private elementRef: ElementRef,
+              private zone: NgZone) {
+    this.offsetStateSubscription &#x3D; this.store.select(&#x27;index&#x27;);
+    this.loadingStateSubscription &#x3D; this.store.select(&#x27;state&#x27;);
+    this.loadingStateSubscription.subscribe((appState) &#x3D;&gt; {
+      this.loadingStatus &#x3D; appState;
+      this.eventDispatcher.emit({label: EVENT.LOADING, metadata: this.loadingStatus});
+    });
+    this.offsetStateSubscription.subscribe((appState) &#x3D;&gt; {
+      this.offsetStatus &#x3D; appState;
+      this.eventDispatcher.emit({label: EVENT.OFFSET, metadata: this.loadingStatus});
+    });
+  }
+
+  /**
+   * After view is checked event
+   *
+   * @returns {void}
+   */
+  ngAfterViewChecked(): void {
+    if (this.options.get(OPTIONS.SHOW_THUMBNAILS)) {
+      this.initializeThumbnailContainer();
+    }
+  }
+
+  /**
+   * Moves a slide outside of the Angular Zone
+   *
+   * @param direction
+   * @param evt
+   * @returns {void}
+   */
+  moveSlide(direction: string &#x3D; &#x27;next&#x27;, evt?): void {
+    if (evt) {
+      evt.preventDefault();
+    }
+
+    this.zone.runOutsideAngular(() &#x3D;&gt; this.slide(direction));
+  }
+
+  /**
+   * Slides an Element given a direction
+   *
+   * @param direction
+   * @returns {void}
+   */
+  slide(direction: string &#x3D; &#x27;next&#x27;): void {
+    const activeElement &#x3D; this.elementRef.nativeElement.querySelector(&#x27;li.&#x27; + DOM_CLASSES.ACTIVE);
+
+    if (!activeElement) {
+      throw new Error(&#x27;No active element defined&#x27;);
+    }
+
+    const slideElement &#x3D; direction &#x3D;&#x3D;&#x3D; SLIDE_DIRECTION.NEXT ?
+      activeElement.nextElementSibling : activeElement.previousElementSibling;
+
+    if (!slideElement || this.loadingStatus &#x3D;&#x3D;&#x3D; SLIDING) {
+      return;
+    }
+
+    this.loadingStateSubscription.dispatch({type: SLIDING});
+    this.offsetStateSubscription.dispatch({type: direction &#x3D;&#x3D;&#x3D; SLIDE_DIRECTION.NEXT ? INCREMENT : DECREMENT});
+
+    activeElement.classList.remove(DOM_CLASSES.ACTIVE);
+    activeElement.classList
+      .add(direction &#x3D;&#x3D;&#x3D; SLIDE_DIRECTION.NEXT ? DOM_CLASSES.SLIDE_OUT_LEFT : DOM_CLASSES.SLIDE_OUT_RIGHT);
+    slideElement.classList.add(DOM_CLASSES.ACTIVE, DOM_CLASSES.SLIDE_IN);
+
+    this.eventDispatcher.emit({label: direction &#x3D;&#x3D;&#x3D; SLIDE_DIRECTION.NEXT ? EVENT.SLIDE_NEXT : EVENT.SLIDE_PREVIOUS});
+  }
+
+  /**
+   * On the active element transition end event
+   *
+   * @param evt
+   * @returns void
+   */
+  onActiveTransitionEnd(evt) {
+    this.zone.runOutsideAngular(() &#x3D;&gt; this.clearActiveElement(evt.currentTarget));
+  }
+
+  /**
+   * Clears the current active element
+   *
+   * @param target
+   * @returns {void}
+   */
+  clearActiveElement(target: HTMLElement): void {
+    if (target &amp;&amp; !target.classList.contains(&#x27;active&#x27;)) {
+      return;
+    }
+
+    const activeElement &#x3D; this.elementRef.nativeElement.querySelector(&#x27;.&#x27; + DOM_CLASSES.ACTIVE);
+
+    if (!activeElement) {
+      throw new Error(&#x27;No active element present&#x27;);
+    }
+
+    const nextElement &#x3D; activeElement.nextElementSibling;
+    const previousElement &#x3D; activeElement.previousElementSibling;
+
+    activeElement.classList.remove(
+      DOM_CLASSES.SLIDE_IN,
+      DOM_CLASSES.LEFT,
+      DOM_CLASSES.RIGHT,
+      DOM_CLASSES.SLIDE_OUT_LEFT,
+      DOM_CLASSES.SLIDE_OUT_RIGHT
+    );
+
+    if (previousElement) {
+      this.clearPreviousElement(previousElement);
+    }
+
+    if (nextElement) {
+      this.clearNextElement(nextElement);
+    }
+
+    this.loadingStateSubscription.dispatch({type: READY});
+    this.eventDispatcher.emit({label: EVENT.ACTIVE_TRANSITION_COMPLETE});
+  }
+
+  /**
+   * Clears previous element
+   *
+   * @param element
+   * @returns void
+   */
+  clearPreviousElement(element: HTMLElement): void {
+    element.classList.add(DOM_CLASSES.LEFT);
+    element.classList.remove(
+      DOM_CLASSES.SLIDE_IN,
+      DOM_CLASSES.RIGHT,
+      DOM_CLASSES.SLIDE_OUT_LEFT,
+      DOM_CLASSES.SLIDE_OUT_RIGHT
+    );
+  }
+
+  /**
+   * Clears next element
+   *
+   * @param element
+   * @returns void
+   */
+  clearNextElement(element: HTMLElement): void {
+    element.classList.add(DOM_CLASSES.RIGHT);
+    element.classList.remove(
+      DOM_CLASSES.SLIDE_IN,
+      DOM_CLASSES.LEFT,
+      DOM_CLASSES.SLIDE_OUT_LEFT,
+      DOM_CLASSES.SLIDE_OUT_RIGHT
+    );
+  }
+
+  /**
+   * On swipe events
+   *
+   * @param action
+   * @returns void
+   */
+  swipe(action &#x3D; SWIPE_ACTION.RIGHT): void {
+    if (action &#x3D;&#x3D;&#x3D; SWIPE_ACTION.RIGHT) {
+      this.moveSlide(SLIDE_DIRECTION.PREVIOUS);
+    } else if (action &#x3D;&#x3D;&#x3D; SWIPE_ACTION.LEFT) {
+      this.moveSlide(SLIDE_DIRECTION.NEXT);
+    }
+
+    this.eventDispatcher.emit({label: action &#x3D;&#x3D;&#x3D; SWIPE_ACTION.RIGHT ? EVENT.SWIPE_PREVIOUS : EVENT.SWIPE_NEXT});
+  }
+
+  /**
+   * Returns a HTML Element
+   *
+   * @param selector
+   * @param single
+   * @returns {any}
+   */
+  getDomElement(selector: string, single: boolean &#x3D; true) {
+    const search &#x3D; this.domElements.filter((domElement) &#x3D;&gt; domElement.selector &#x3D;&#x3D;&#x3D; selector);
+    let elem;
+
+    if (search.length &gt; 0) {
+      elem &#x3D; search[0].elem;
+    } else {
+      elem &#x3D; single ? this.elementRef.nativeElement.querySelector(selector)
+        : this.elementRef.nativeElement.querySelectorAll(selector);
+      this.domElements.push({selector: selector, elem: elem});
+    }
+
+    return elem;
+  }
+
+  /**
+   * Sets an element to the left
+   *
+   * @param elem
+   * @returns {void}
+   */
+  moveLeft(elem) {
+    elem.classList.remove(DOM_CLASSES.RIGHT, DOM_CLASSES.ACTIVE);
+    elem.classList.add(DOM_CLASSES.LEFT);
+    this.eventDispatcher.emit({label: EVENT.MOVE_LEFT});
+  }
+
+  /**
+   * Sets an element to the right
+   *
+   * @param elem
+   * @returns {void}
+   */
+  moveRight(elem) {
+    elem.classList.remove(DOM_CLASSES.LEFT, DOM_CLASSES.ACTIVE);
+    elem.classList.add(DOM_CLASSES.RIGHT);
+    this.eventDispatcher.emit({label: EVENT.MOVE_RIGHT});
+  }
+
+  /**
+   * Slides an element to the left
+   *
+   * @param elem
+   * @returns {void}
+   */
+  slideLeft(elem) {
+    elem.classList.add(DOM_CLASSES.ACTIVE);
+    elem.classList.remove(DOM_CLASSES.ACTIVE);
+    elem.classList.add(DOM_CLASSES.SLIDE_OUT_LEFT);
+    this.eventDispatcher.emit({label: EVENT.SLIDE_LEFT});
+  }
+
+  /**
+   * Slides an element to the right
+   *
+   * @param elem
+   * @returns {void}
+   */
+  slideRight(elem) {
+    elem.classList.add(DOM_CLASSES.ACTIVE);
+    elem.classList.remove(DOM_CLASSES.ACTIVE);
+    elem.classList.add(DOM_CLASSES.SLIDE_OUT_RIGHT);
+    this.eventDispatcher.emit({label: EVENT.SLIDE_RIGHT});
+  }
+
+  /**
+   * Slides in an element
+   *
+   * @param elem
+   * @returns {void}
+   */
+  slideIn(elem) {
+    elem.classList.add(DOM_CLASSES.ACTIVE, DOM_CLASSES.SLIDE_IN);
+    this.eventDispatcher.emit({label: EVENT.SLIDE_IN});
+  }
+
+  /**
+   * Show an element given its index
+   *
+   * @param index
+   * @returns void
+   */
+  showByIndex(index: number): void {
+    this.zone.runOutsideAngular(() &#x3D;&gt; this.slideInElementByIndex(index));
+  }
+
+  /**
+   * Slides in an element given its index
+   *
+   * @param index
+   * @returns {void}
+   */
+  slideInElementByIndex(index: number): void {
+    const list &#x3D; this.getDomElement(&#x27;li&#x27;, false);
+    const currentIndex &#x3D; this.offsetStatus;
+
+    for (let i &#x3D; 0; i &lt; index; i++) {
+      this.moveLeft(list[i]);
+    }
+
+    for (let i &#x3D; index + 1; i &lt; list.length; i++) {
+      this.moveRight(list[i]);
+    }
+
+    if (index &gt; currentIndex) {
+      this.offsetStateSubscription.dispatch({type: RESET});
+      for (let i &#x3D; 0; i &lt; index; i++) {
+        this.offsetStateSubscription.dispatch({type: INCREMENT});
+      }
+      this.replaceActiveElement(list[currentIndex], list[index], SLIDE_DIRECTION.LEFT);
+    } else {
+      for (let i &#x3D; currentIndex; i &gt; index; i--) {
+        this.offsetStateSubscription.dispatch({type: DECREMENT});
+      }
+      this.replaceActiveElement(list[currentIndex], list[index]);
+    }
+
+    this.eventDispatcher.emit({label: EVENT.SLIDE_IN_BY_INDEX, metadata: {index: index}});
+  }
+
+  /**
+   * Replaces current active element
+   *
+   * @param activeElement
+   * @param replacementElement
+   * @param direction
+   * @returns {void}
+   */
+  replaceActiveElement(activeElement: HTMLElement,
+                       replacementElement: HTMLElement,
+                       direction: string &#x3D; SLIDE_DIRECTION.RIGHT): void {
+    if (direction &#x3D;&#x3D;&#x3D; SLIDE_DIRECTION.RIGHT) {
+      this.slideRight(activeElement);
+    } else {
+      this.slideLeft(activeElement);
+    }
+
+    this.slideIn(replacementElement);
+  }
+
+  /**
+   * Initializes the thumbnails container
+   *
+   * @returns {void}
+   */
+  initializeThumbnailContainer() {
+    const parent &#x3D; this.elementRef.nativeElement.querySelector(&#x27;.&#x27; + DOM_CLASSES.THUMBNAILS);
+    const container &#x3D; parent.querySelector(&#x27;ul&#x27;);
+    const containerWidth &#x3D; container.offsetWidth;
+    const totalImages &#x3D; this.images.count();
+    const thumbnailWidth &#x3D; this.options.get(OPTIONS.THUMBNAIL_WIDTH);
+
+    if (!thumbnailWidth || isNaN(thumbnailWidth)) {
+      throw new Error(&#x27;Thumbnail width option is not defined&#x27;);
+    }
+
+    const numElements &#x3D; Math.ceil(containerWidth / thumbnailWidth);
+
+    if (totalImages &gt; numElements) {
+      parent.classList.remove(DOM_CLASSES.NO_SCROLL_RIGHT);
+    } else {
+      parent.classList.add(DOM_CLASSES.NO_SCROLL_RIGHT);
+    }
+  }
+
+  /**
+   * Slides thumbnails to a given direction
+   *
+   * @param container
+   * @param direction
+   * @returns {void}
+   */
+  slideThumbnails(container: HTMLElement, direction: string &#x3D; SLIDE_DIRECTION.NEXT) {
+    const parent &#x3D; this.elementRef.nativeElement.querySelector(&#x27;.&#x27; + DOM_CLASSES.THUMBNAILS);
+    const containerWidth &#x3D; container.offsetWidth;
+    const children &#x3D; container.querySelectorAll(&#x27;li&#x27;);
+    const thumbnailWidth &#x3D; this.options.get(OPTIONS.THUMBNAIL_WIDTH);
+    const numElements &#x3D; Math.ceil(containerWidth / thumbnailWidth);
+    const mask &#x3D; parent.querySelector(&#x27;.&#x27; + DOM_CLASSES.GRADIENT_MASK);
+    const distance &#x3D; (this.thumbnailOffset + 1) * numElements * thumbnailWidth - thumbnailWidth;
+    const curLeft &#x3D; parseInt(container.getAttribute(&#x27;data-left&#x27;), 10);
+    const newLeft &#x3D; direction &#x3D;&#x3D;&#x3D; SLIDE_DIRECTION.NEXT ? (curLeft - distance) + &#x27;px&#x27; : (curLeft + distance) + &#x27;px&#x27;;
+    const page &#x3D; parseInt(container.getAttribute(&#x27;data-page&#x27;), 10);
+    const newPage &#x3D; direction &#x3D;&#x3D;&#x3D; SLIDE_DIRECTION.NEXT ? page + 1 : page - 1;
+    const totalPages &#x3D; Math.round(children.length / numElements);
+
+    if (newPage &gt; totalPages) {
+      parent.classList.add(DOM_CLASSES.NO_SCROLL_RIGHT);
+      parent.classList.remove(DOM_CLASSES.NO_SCROLL_LEFT);
+      mask.classList.remove(DOM_CLASSES.GRADIENT_MASK_BOTH, DOM_CLASSES.GRADIENT_MASK_RIGHT);
+      mask.classList.add(DOM_CLASSES.GRADIENT_MASK_LEFT);
+    } else if (newPage &#x3D;&#x3D;&#x3D; 1) {
+      parent.classList.add(DOM_CLASSES.NO_SCROLL_LEFT);
+      mask.classList.remove(DOM_CLASSES.GRADIENT_MASK_BOTH, DOM_CLASSES.GRADIENT_MASK_LEFT);
+      mask.classList.add(DOM_CLASSES.GRADIENT_MASK_RIGHT);
+    } else {
+      parent.classList.remove(DOM_CLASSES.NO_SCROLL_RIGHT, DOM_CLASSES.NO_SCROLL_LEFT);
+      mask.classList.remove(DOM_CLASSES.GRADIENT_MASK_RIGHT, DOM_CLASSES.GRADIENT_MASK_LEFT);
+      mask.classList.add(DOM_CLASSES.GRADIENT_MASK_BOTH);
+    }
+
+    container.style.left &#x3D; newLeft;
+    container.setAttribute(&#x27;data-left&#x27;, newLeft);
+    container.setAttribute(&#x27;data-page&#x27;, newPage + &#x27;&#x27;);
+  }
+
+  /**
+   * Slides thumbnails to right
+   *
+   * @param container
+   * @returns {void}
+   */
+  moveThumbnailsRight(container: HTMLElement): void {
+    this.zone.runOutsideAngular(() &#x3D;&gt; this.slideThumbnails(container, SLIDE_DIRECTION.NEXT));
+    this.eventDispatcher.emit({label: EVENT.MOVE_THUMBNAILS_RIGHT});
+  }
+
+  /**
+   * Slides thumbnails to left
+   *
+   * @param container
+   * @returns {void}
+   */
+  moveThumbnailsLeft(container: HTMLElement) {
+    this.zone.runOutsideAngular(() &#x3D;&gt; this.slideThumbnails(container, SLIDE_DIRECTION.PREVIOUS));
+    this.eventDispatcher.emit({label: EVENT.MOVE_THUMBNAILS_LEFT});
+  }
+
+  /**
+   * Gets a protected safe url to use
+   *
+   * @param imageUrl
+   * @returns {SafeStyle}
+   */
+  getSafeUrl(imageUrl: string): SafeUrl {
+    return this.domSanitizer.bypassSecurityTrustStyle(&#x60;url(${imageUrl})&#x60;);
+  }
+}
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade" id="templateData">
+        <pre class="line-numbers"><code class="language-html">&lt;section class&#x3D;&quot;ng-slideshow&quot; (swipeleft)&#x3D;&quot;swipe($event.type)&quot; (swiperight)&#x3D;&quot;swipe($event.type)&quot;&gt;
+  &lt;div class&#x3D;&quot;mask&quot;&gt;
+    &lt;ul&gt;
+      &lt;li *ngFor&#x3D;&quot;let image of images; let i &#x3D; index&quot;
+          [class.active]&#x3D;&quot;i &#x3D;&#x3D;&#x3D; 0&quot;
+          (transitionend)&#x3D;&quot;onActiveTransitionEnd($event)&quot;&gt;
+        &lt;a href&#x3D;&quot;#&quot; [style.background-image]&#x3D;&quot;getSafeUrl(image.url)&quot;&gt;&lt;/a&gt;
+        &lt;div class&#x3D;&quot;gradient&quot; *ngIf&#x3D;&quot;image.title || options.get(&#x27;showDots&#x27;)&quot;&gt;&lt;/div&gt;
+        &lt;span *ngIf&#x3D;&quot;image.title&quot;&gt;&lt;em&gt;{{image.title | truncate : 200}}&lt;/em&gt;&lt;/span&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;nav&gt;
+      &lt;a href&#x3D;&quot;#&quot; class&#x3D;&quot;prev&quot; (click)&#x3D;&quot;moveSlide(&#x27;previous&#x27;, $event)&quot; *ngIf&#x3D;&quot;offsetStatus &gt; 0&quot;&gt;&lt;/a&gt;
+      &lt;a href&#x3D;&quot;#&quot; class&#x3D;&quot;next&quot; (click)&#x3D;&quot;moveSlide(&#x27;next&#x27;, $event)&quot; *ngIf&#x3D;&quot;offsetStatus &lt; images.count() - 1&quot;&gt;&lt;/a&gt;
+    &lt;/nav&gt;
+    &lt;div class&#x3D;&quot;nav-dots&quot; *ngIf&#x3D;&quot;options.get(&#x27;showDots&#x27;)&quot;&gt;
+      &lt;span class&#x3D;&quot;nav-dot&quot;
+            *ngFor&#x3D;&quot;let image of images; let offset &#x3D; index&quot;
+            [class.active]&#x3D;&quot;offset &#x3D;&#x3D;&#x3D; offsetStatus&quot;
+            (click)&#x3D;&quot;showByIndex(offset)&quot; id&#x3D;&quot;{{offset}}&quot;&gt;
+      &lt;/span&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+  &lt;div *ngIf&#x3D;&quot;options.get(&#x27;showThumbnails&#x27;)&quot; class&#x3D;&quot;thumbnails no-scroll-left no-scroll-right&quot;&gt;
+    &lt;ul #thumbnailsContainer data-left&#x3D;&quot;0&quot; [attr.data-right]&#x3D;&quot;images.count()&quot; data-page&#x3D;&quot;1&quot;&gt;
+      &lt;li *ngFor&#x3D;&quot;let image of images; let thumbnailOffset &#x3D; index&quot;
+          id&#x3D;&quot;thumbnail-{{thumbnailOffset}}&quot;
+          [style.width.px]&#x3D;&quot;options.get(&#x27;thumbnailWidth&#x27;)&quot;
+          [style.left.px]&#x3D;&quot;thumbnailOffset * options.get(&#x27;thumbnailWidth&#x27;)&quot;
+          [class.active]&#x3D;&quot;thumbnailOffset &#x3D;&#x3D;&#x3D; offsetStatus&quot;&gt;
+        &lt;a href&#x3D;&quot;#&quot; (click)&#x3D;&quot;showByIndex(thumbnailOffset)&quot; [style.background-image]&#x3D;&quot;getSafeUrl(image.url)&quot;&gt;&lt;/a&gt;
+      &lt;/li&gt;
+    &lt;/ul&gt;
+    &lt;div class&#x3D;&quot;gradient-mask gradient-mask-right&quot;&gt;&lt;/div&gt;
+    &lt;nav&gt;
+      &lt;a href&#x3D;&quot;#&quot; class&#x3D;&quot;prev&quot; (click)&#x3D;&quot;moveThumbnailsLeft(thumbnailsContainer)&quot;&gt;&lt;/a&gt;
+      &lt;a href&#x3D;&quot;#&quot; class&#x3D;&quot;next&quot; (click)&#x3D;&quot;moveThumbnailsRight(thumbnailsContainer)&quot;&gt;&lt;/a&gt;
+    &lt;/nav&gt;
+  &lt;/div&gt;
+&lt;/section&gt;
+</code></pre>
+    </div>
+
+    <div class="tab-pane fade" id="tree">
+        <div id="tree-container"></div>
+        <div class="tree-legend">
+            <div class="title">
+                <b>Legend</b>
+            </div>
+            <div>
+                <div class="color htmlelement"></div><span>Html element</span>
+            </div>
+            <div>
+                <div class="color component"></div><span>Component</span>
+            </div>
+            <div>
+                <div class="color directive"></div><span>Html element with directive</span>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="../js/libs/vis.min.js"></script>
+<script src="../js/libs/htmlparser.js"></script>
+<script src="../js/libs/deep-iterator.js"></script>
+<script>
+        var COMPONENT_TEMPLATE = '<div><section class="ng-slideshow" (swipeleft)="swipe($event.type)" (swiperight)="swipe($event.type)">  <div class="mask">    <ul>      <li *ngFor="let image of images; let i = index"          [class.active]="i === 0"          (transitionend)="onActiveTransitionEnd($event)">        <a href="#" [style.background-image]="getSafeUrl(image.url)"></a>        <div class="gradient" *ngIf="image.title || options.get(\'showDots\')"></div>        <span *ngIf="image.title"><em>{{image.title | truncate : 200}}</em></span>      </li>    </ul>    <nav>      <a href="#" class="prev" (click)="moveSlide(\'previous\', $event)" *ngIf="offsetStatus > 0"></a>      <a href="#" class="next" (click)="moveSlide(\'next\', $event)" *ngIf="offsetStatus < images.count() - 1"></a>    </nav>    <div class="nav-dots" *ngIf="options.get(\'showDots\')">      <span class="nav-dot"            *ngFor="let image of images; let offset = index"            [class.active]="offset === offsetStatus"            (click)="showByIndex(offset)" id="{{offset}}">      </span>    </div>  </div>  <div *ngIf="options.get(\'showThumbnails\')" class="thumbnails no-scroll-left no-scroll-right">    <ul #thumbnailsContainer data-left="0" [attr.data-right]="images.count()" data-page="1">      <li *ngFor="let image of images; let thumbnailOffset = index"          id="thumbnail-{{thumbnailOffset}}"          [style.width.px]="options.get(\'thumbnailWidth\')"          [style.left.px]="thumbnailOffset * options.get(\'thumbnailWidth\')"          [class.active]="thumbnailOffset === offsetStatus">        <a href="#" (click)="showByIndex(thumbnailOffset)" [style.background-image]="getSafeUrl(image.url)"></a>      </li>    </ul>    <div class="gradient-mask gradient-mask-right"></div>    <nav>      <a href="#" class="prev" (click)="moveThumbnailsLeft(thumbnailsContainer)"></a>      <a href="#" class="next" (click)="moveThumbnailsRight(thumbnailsContainer)"></a>    </nav>  </div></section></div>'
+    var COMPONENTS = [{'name': 'AppComponent', 'selector': 'app-root'},{'name': 'SlideshowComponent', 'selector': 'ng-slideshow'}];
+    var DIRECTIVES = [];
+    var ACTUAL_COMPONENT = {'name': 'SlideshowComponent'};
+</script>
+<script src="../js/tree.js"></script>
+
+
+
+
+
+
+
+
+
+                   </div><div class="search-results">
+    <div class="has-results">
+        <h1 class="search-results-title"><span class='search-results-count'></span> results matching "<span class='search-query'></span>"</h1>
+        <ul class="search-results-list"></ul>
+    </div>
+    <div class="no-results">
+        <h1 class="search-results-title">No results matching "<span class='search-query'></span>"</h1>
+    </div>
+</div>
+</div>
+           </div>
+       </div>
+
+       <script src="../js/libs/bootstrap-native.js"></script>
+
+       <script src="../js/libs/es6-shim.min.js"></script>
+       <script src="../js/libs/EventDispatcher.js"></script>
+       <script src="../js/libs/promise.min.js"></script>
+       <script src="../js/libs/zepto.min.js"></script>
+
+       <script src="../js/compodoc.js"></script>
+
+       <script>var COMPODOC_CURRENT_PAGE_DEPTH = 1;</script>
+
+       <script src="../js/search/search.js"></script>
+       <script src="../js/search/lunr.min.js"></script>
+       <script src="../js/search/search-lunr.js"></script>
+
+       <script src="../js/tabs.js"></script>
+       <script src="../js/menu.js"></script>
+       <script src="../js/libs/prism.js"></script>
+       <script src="../js/sourceCode.js"></script>
+       <script src="../js/search/search_index.js"></script>
+
+    </body>
+</html>
